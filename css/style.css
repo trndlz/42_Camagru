@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 400px) {
+    #image_post {
+        width: 400px;
+		margin-bottom: 25px;
+		float: align;
+    }
+
+	#image_post .img_data img {
+		max-width: 400px;
+		height: auto;
+	}
+
+	.content {
+	  padding-top: 16px;
+	  padding-bottom: 0px;
+	  max-width: 100%;
+	  display: flex;
+	  flex-wrap: wrap;
+	  justify-content: space-evenly;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	#image_post {
+		width: 100%;
+		margin-top: 5px;
+		margin-bottom: 25px;
+		border-radius: 3%;
+	}
+
+	#image_post .img_data img {
+		max-width: 100%;
+		height: auto;
+	}
+
+	.content {
+	  padding-top: 16px;
+	  padding-bottom: 0px;
+	  max-width: 100%;
+	}
+}
+
+.top-container {
+  background-color: #ffffff;
+  padding: 30px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 20px;
+  background-image: url("../img/forest.jpg");
+  background-position: center;
+}
+
+.header {
+	padding-top: 8px;
+	padding-bottom: 8px;
+	background: #a1c181;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 400;
+	font-size: 15px;
+	color: #eee;
+	letter-spacing: 6px;
+	box-shadow: 0px 1px 4px #aaa;
+	overflow: hidden;
+}
+
+.navbar {
+	display: flex;
+	justify-content: space-around;
+	padding: 0px;
+	max-width: 100%;
+	overflow: hidden;
+}
+
+
+
+.navbar lu.camagru_title {
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 700;
+	font-size: 25px;
+}
+
+.navbar lu {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.gru {
+  color: #2b9c86;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.sticky + .content {
+  padding-top: 98px;
+}
+
+.footer {
+    color: #ffffff;
+    text-align: center;
+	padding: 10px;
+	margin-top: 10px;
+	opacity: 0.5;
+    font-size: 12px;
+    background-image: url("../img/forest.jpg");
+    background-position: center;
+	max-width: 100%;
+}
