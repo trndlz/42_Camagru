@@ -1,5 +1,10 @@
 <?php
-	$DB_DSN = "mysql:dbname=camagru;host=localhost";
-	$DB_USER = "root";
-	$DB_PASSWORD = "pokpokpok";
+class dbConfig
+{
+    protected function dbConnect()
+    {
+        $db = new PDO('mysql:dbname=camagru;host=localhost', 'root', 'pokpokpok');
+        return $db;
+    }
+}
 ?>

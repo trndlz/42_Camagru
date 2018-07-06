@@ -1,15 +1,10 @@
 <?php
-	require_once('config/database.php');
+	require_once('model/PhotosManager.php');
+	require_once('view/viewPhotos.php');
 
-	// $controller = DEFAULT_CONTROLLER;
-  	// $action = DEFAULT_ACTION;
-  	// $parameter = null;
+	$db = new photosManager();
+	$photos = $db->getPhotos();
 
-  	if (isset($_GET['controller']) && isset($_GET['action']))
-  	{
-		$controller = strtolower($_GET['controller']);
-    	$action = strtolower($_GET['action']);
-	}
 ?>
 
 <!DOCTYPE html>
@@ -34,32 +29,8 @@
 	  		<lu><img src="public/img/user.svg" width="30px" class="h2_icos"></lu>
 		</ul>
 	</div>
-	<?php echo "<p>salut</p>"; print_r($_GET); ?>
 	<div class="content">
-	  <div id="image_post">
-		  <p class="img_data"><img src="public/img/posts/chene.jpg"</p>
-		  <p class="img_info">Posted from <a href="#">User 1</a> &hearts; - Comment - Share - Love</p>
-	  </div>
-	  <div id="image_post">
-		  <p class="img_data"><img src="public/img/posts/bouleau.jpg"</p>
-		  <p class="img_info">Posted from <a href="#">User 1</a> &hearts; - Comment - Share - Love</p>
-	  </div>
-	  <div id="image_post">
-		  <p class="img_data"><img src="public/img/posts/sapin.jpg"</p>
-		  <p class="img_info">Posted from <a href="#">User 1</a> &hearts; - Comment - Share - Love</p>
-	  </div>
-	  <div id="image_post">
-		  <p class="img_data"><img src="public/img/posts/chene.jpg"</p>
-		  <p class="img_info">Posted from <a href="#">User 1</a> &hearts; - Comment - Share - Love</p>
-	  </div>
-	  <div id="image_post">
-		  <p class="img_data"><img src="public/img/posts/bouleau.jpg"</p>
-		  <p class="img_info">Posted from <a href="#">User 1</a> &hearts; - Comment - Share - Love</p>
-	  </div>
-	  <div id="image_post">
-		  <p class="img_data"><img src="public/img/posts/sapin.jpg"</p>
-		  <p class="img_info">Posted from <a href="#">User 1</a> &hearts; - Comment - Share - Love</p>
-	  </div>
+	  <?php displayPhotos($photos); ?>
   </div>
   <div class="footer">
 		Copyright 2018. VBNTMLP.
