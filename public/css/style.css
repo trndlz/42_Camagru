@@ -5,53 +5,7 @@ body {
   font-size: 14px;
 }
 
-/* Media Queries / Small Screens */
-
-@media screen and (min-width: 400px) {
-    #image_post {
-        width: 400px;
-		margin-bottom: 25px;
-		float: align;
-    }
-
-	#image_post .img_data img {
-		max-width: 400px;
-		height: auto;
-	}
-
-	.content {
-	  padding-top: 16px;
-	  padding-bottom: 0px;
-	  max-width: 80%;
-	  margin-left: auto;
-	  margin-right: auto;
-	  display: flex;
-	  flex-wrap: wrap;
-	  justify-content: space-evenly;
-	}
-}
-
-/* Media Queries / Larger Screens */
-
-@media screen and (max-width: 400px) {
-	#image_post {
-		width: 100%;
-		margin-top: 5px;
-		margin-bottom: 25px;
-		border-radius: 3%;
-	}
-
-	#image_post .img_data img {
-		max-width: 100%;
-		height: auto;
-	}
-
-	.content {
-	  padding-top: 16px;
-	  padding-bottom: 0px;
-	  max-width: 100%;
-	}
-}
+/* Headers */
 
 .top-container {
   background-color: #ffffff;
@@ -76,15 +30,20 @@ body {
 	overflow: hidden;
 }
 
+/* Navbar */
+
 .navbar {
 	display: flex;
 	justify-content: space-around;
 	padding: 0px;
 	max-width: 100%;
 	overflow: hidden;
+	z-index: 5;
 }
 
-
+.gru {
+  color: #2b9c86;
+}
 
 .navbar lu.camagru_title {
 	font-family: 'Quicksand', sans-serif;
@@ -97,20 +56,139 @@ body {
 	padding-bottom: 0px;
 }
 
-.gru {
-  color: #2b9c86;
-}
+/* Sticky Navbar */
 
 .sticky {
   position: fixed;
   top: 0;
   width: 100%;
   overflow: hidden;
+  z-index: 5;
 }
 
 .sticky + .content {
   padding-top: 98px;
 }
+
+/* Media Queries / Large Screens */
+
+@media screen and (min-width: 400px) {
+    #image_post {
+        width: 400px;
+    }
+
+	#image_post .img_data {
+		max-width: 400px;
+		max-height: 400px;
+		/* height: auto; */
+	}
+
+	#image_post .img_data img {
+		max-width: 400px;
+		height: auto;
+	}
+
+	.content {
+	  padding-top: 16px;
+	  padding-bottom: 0px;
+	  max-width: 80%;
+	  margin-left: auto;
+	  margin-right: auto;
+	  display: flex;
+	  flex-wrap: wrap;
+	  justify-content: space-evenly;
+	}
+}
+
+/* Media Queries / Smaller Screens */
+
+@media screen and (max-width: 400px) {
+	#image_post {
+		width: 100%;
+	}
+
+	#image_post .img_data {
+		position: relative;
+		width: 100vw;
+		height: 100vw;
+
+	}
+
+	#image_post .img_data img {
+		width: 100%;
+		height: auto;
+	}
+
+	.content {
+	  padding-top: 16px;
+	  padding-bottom: 0px;
+	  max-width: 100%;
+	}
+}
+
+/* Images Posts / Independant from screen size */
+
+#image_post {
+	margin-bottom: 25px;
+}
+
+#image_post .img_data {
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+}
+
+#image_post .img_data img {
+	height: auto;
+	margin: 0px;
+	padding: 0px;
+}
+
+/* Heart Layer */
+
+
+
+.heart_layer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .3s ease;
+  background-color: lightgreen;
+  margin: 0px;
+  padding: 0px;
+}
+
+.img_data:hover .heart_layer {
+  opacity: 0.5;
+}
+
+.heart_icon {
+  color: white;
+  font-size: 100px;
+  position: absolute;
+  top: 80%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.fa-heart:hover {
+  color: darkgreen;
+}
+
+
+
+
+
+
+
+/* Footer */
 
 .footer {
     color: #ffffff;

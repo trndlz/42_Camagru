@@ -4,7 +4,6 @@
 
 	$db = new photosManager();
 	$photos = $db->getPhotos();
-
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +15,7 @@
 	<style>
 		@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
 	</style>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 	<div class="top-container">

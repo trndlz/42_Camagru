@@ -1,12 +1,23 @@
 <?php
+require_once('helpers/timeago.php');
 
 function displayPhotos($array) {
 	foreach ($array as $line) {
-		echo "<div id='image_post'>\n";
-		echo "<p class='img_data'><img src=".$line['link']."></p>\n";
-		echo "<p class='img_info'>Posted from <a href='#'>".$line['auteur']."\n";
-		echo "</a> &hearts; - Comment - Share - Love</p>\n";
-		echo "</div>\n";
+?>
+	<div id='image_post'>
+		<div class='img_data'><img src=" <?= $line['link'] ?> ">
+			<div class="heart_layer">
+	  			<a href="#" class="heart_icon">
+		  			<i class="fa fa-heart"></i>
+	  			</a>
+			</div>
+		</div>
+		<p class='img_info'>Posted from <a href='#'><?= htmlspecialchars($line['auteur']) ?></a>
+		<?= get_timeago(strtotime($line['date'])); ?></p>
+
+		<p>&hearts; - Comment - Share - Love</p>
+	</div>
+<?php
 	}
 }
 ?>
