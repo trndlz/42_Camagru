@@ -1,4 +1,5 @@
 <?php
+
 require_once('helpers/timeago.php');
 
 function displayPhotos($array) {
@@ -17,8 +18,6 @@ function displayPhotos($array) {
 		</div>
 		<p class='img_info'>Posted from <a href='#'><?= htmlspecialchars($line['auteur']) ?></a>
 		<?= get_timeago(strtotime($line['date'])); ?></p>
-
-		<p>&hearts; - Comment - Share - Love</p>
 	</div>
 <?php
 	}
