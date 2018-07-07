@@ -45,15 +45,20 @@ body {
   color: #2b9c86;
 }
 
-.navbar lu.camagru_title {
+.navbar i.camagru_title {
 	font-family: 'Quicksand', sans-serif;
 	font-weight: 700;
-	font-size: 25px;
+	font-size: 27px;
+	font-style: normal;
 }
 
-.navbar lu {
+.navbar i {
 	padding-top: 0px;
 	padding-bottom: 0px;
+}
+
+.fa-camera-retro, .fa-user-circle {
+	font-size: 30px;
 }
 
 /* Sticky Navbar */
@@ -97,6 +102,14 @@ body {
 	  display: flex;
 	  flex-wrap: wrap;
 	  justify-content: space-evenly;
+	}
+
+	.navbar i.camagru_title::before {
+		content: "cama";
+	}
+
+	.navbar i.camagru_title span::after {
+		content: "green";
 	}
 }
 
@@ -146,8 +159,6 @@ body {
 
 /* Heart Layer */
 
-
-
 .heart_layer {
   position: absolute;
   top: 0;
@@ -167,26 +178,25 @@ body {
   opacity: 0.5;
 }
 
-.heart_icon {
+.heart_icon, .comments_icon {
   color: white;
-  font-size: 100px;
+  font-size: 80px;
   position: absolute;
-  top: 80%;
-  left: 80%;
+  top: 85%;
+  left: 85%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   text-align: center;
 }
 
-.fa-heart:hover {
-  color: darkgreen;
+.heart_icon {
+  top: 85%;
+  left: 15%;
 }
 
-
-
-
-
-
+.fa-heart:hover, .fa-comment-dots:hover {
+  color: darkgreen;
+}
 
 /* Footer */
 

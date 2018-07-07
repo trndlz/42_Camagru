@@ -8,7 +8,10 @@ function displayPhotos($array) {
 		<div class='img_data'><img src=" <?= $line['link'] ?> ">
 			<div class="heart_layer">
 	  			<a href="#" class="heart_icon">
-		  			<i class="fa fa-heart"></i>
+		  			<i class="far fa-heart"></i>
+	  			</a>
+				<a href="#" class="comments_icon">
+		  			<i class="far fa-comment-dots"></i>
 	  			</a>
 			</div>
 		</div>

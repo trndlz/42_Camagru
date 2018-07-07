@@ -15,7 +15,7 @@
 	<style>
 		@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
 	</style>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 </head>
 <body>
 	<div class="top-container">
@@ -24,9 +24,9 @@
 
 	<div class="header" id="stickyHeader">
 		<ul class="navbar">
-			<lu><img src="public/img/cam.svg" width="30px" class="h2_icos"></lu>
-			<lu class="camagru_title">cama&hearts;<span class="gru">green</span></lu>
-	  		<lu><img src="public/img/user.svg" width="30px" class="h2_icos"></lu>
+			<i class="fas fa-camera-retro"></i>
+			<i class="camagru_title">&hearts;<span class="gru"></span></i>
+			<i class="far fa-user-circle"></i>
 		</ul>
 	</div>
 	<div class="content">
