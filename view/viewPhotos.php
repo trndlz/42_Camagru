@@ -16,7 +16,7 @@ function displayPhotos($array) {
 	  			</a>
 			</div>
 		</div>
-		<p class='img_info'>Posted from <a href='#'><?= htmlspecialchars($line['auteur']) ?></a>
+		<p id='img_info'>Posted from <a href='#'><?= htmlspecialchars($line['login']) ?></a>
 		<?= get_timeago(strtotime($line['date'])); ?></p>
 	</div>
 <?php

@@ -1,9 +1,5 @@
 <?php
-	require_once('model/PhotosManager.php');
-	require_once('view/viewPhotos.php');
-
-	$db = new photosManager();
-	$photos = $db->getPhotos();
+	require_once('controller/controller.php');
 ?>
 
 <!DOCTYPE html>
@@ -19,22 +15,24 @@
 </head>
 <body>
 	<div class="top-container">
-	  <h1>PASSION.<br>DENDROPHILE.</h1>
+	  <h1 id="header_text">PASSION.<br>DENDROPHILE.</h1>
 	</div>
 
 	<div class="header" id="stickyHeader">
 		<ul class="navbar">
-			<i class="fas fa-camera-retro"></i>
+			<a href="index.php?action=add"><i class="fas fa-camera-retro"></i></a>
 			<i class="camagru_title">&hearts;<span class="gru"></span></i>
 			<i class="far fa-user-circle"></i>
 		</ul>
 	</div>
 	<div class="content">
-	  <?php displayPhotos($photos); ?>
+	  <?php $controller = new Controller();
+	  $controller->loadModel(); ?>
   </div>
   <div class="footer">
 		Copyright 2018. VBNTMLP.
 	</div>
 	<script src="public/js/sticky_header.js"></script>
+	<script src="public/js/webcam.js"></script>
 </body>
 </html>

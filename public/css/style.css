@@ -134,6 +134,10 @@ body {
 		height: 100vw;
 	}
 
+	#header_text {
+		font-size: 10vw;
+	}
+
 	#image_post .img_data img {
 		width: 100%;
 		height: auto;
@@ -166,6 +170,10 @@ body {
 	height: auto;
 	margin: 0px;
 	padding: 0px;
+}
+
+#img_info {
+	margin-left: 4px;
 }
 
 /* Heart + Comments Layer */
@@ -211,13 +219,13 @@ body {
 /* Footer */
 
 .footer {
-    color: #ffffff;
-    text-align: center;
+  color: #ffffff;
+  text-align: center;
 	padding: 10px;
 	margin-top: 10px;
 	opacity: 0.5;
-    font-size: 12px;
-    background-image: url("../img/forest.jpg");
-    background-position: center;
+  font-size: 12px;
+  background-image: url("../img/forest.jpg");
+  background-position: center;
 	max-width: 100%;
 }
