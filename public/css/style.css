@@ -5,6 +5,8 @@ body {
   font-size: 15px;
 }
 
+
+
 /* Headers */
 
 .top-container {
@@ -232,24 +234,30 @@ body {
 
 /* Webcam */
 
-#videoElement, #canvas {
-	border: 10px solid yellow;
-	width: 100%;
+#videoElement, #canvas, #canvas_copy {
+	border: 6px solid #a1c181;
+	border-radius: 20px 20px;
+	max-width: 400px;
 }
 
 #canvas_copy {
 	display: none;
 }
 
+.button_p {
+	flex-basis: 100%;
+	text-align: center;
+}
+
 .webcam-button {
-	padding-top: 0px;
+	padding: 8px;
   font-size: 15px;
 	color: white;
 	font-family: 'Quicksand', sans-serif;
   text-align: center;
-  background: #27ae60;
+  background: #a1c181;
   border: 0;
-  border-bottom: 2px solid #219d55;
+  border-bottom: 2px solid #97b678;
 }
 
 .webcam-button:active {
@@ -257,4 +265,9 @@ body {
   outline: none;
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+
+#cam_titles {
+	text-align: center;
+	color: #2b9c86;
 }
