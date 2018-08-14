@@ -28,7 +28,6 @@
 	<div class="content">
 	  <?php $controller = new Controller();
 	  $controller->loadModel(); ?>
-	 <script src="public/js/webcam.js"></script>
   </div>
   <div class="footer">
 		Copyright 2018. VBNTMLP.

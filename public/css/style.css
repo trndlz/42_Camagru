@@ -229,3 +229,32 @@ body {
   background-position: center;
 	max-width: 100%;
 }
+
+/* Webcam */
+
+#videoElement, #canvas {
+	border: 10px solid yellow;
+	width: 100%;
+}
+
+#canvas_copy {
+	display: none;
+}
+
+.webcam-button {
+	padding-top: 0px;
+  font-size: 15px;
+	color: white;
+	font-family: 'Quicksand', sans-serif;
+  text-align: center;
+  background: #27ae60;
+  border: 0;
+  border-bottom: 2px solid #219d55;
+}
+
+.webcam-button:active {
+  top: 1px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
