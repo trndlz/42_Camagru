@@ -15,6 +15,7 @@ class Controller {
         else
         {
             if ($_GET['action'] == 'add') {
+                
                 require('view/addphotos.php');
             }
         }

@@ -2,10 +2,9 @@ body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
   font-weight: 400;
-  font-size: 15px;
+	font-size: 15px;
+	box-sizing: border-box;
 }
-
-
 
 /* Headers */
 
@@ -52,19 +51,28 @@ body {
 	font-weight: 700;
 	font-size: 27px;
 	font-style: normal;
+	align-self: center;
 }
 
 .navbar i {
 	padding-top: 0px;
 	padding-bottom: 0px;
+	align-self: center;
+}
+
+.navlink {
+	color: white;
+	align-self: center;
 }
 
 .fa-camera-retro, .fa-user-circle {
 	font-size: 30px;
+	align-self: center;
 }
 
 .fa-camera-retro:hover, .fa-user-circle:hover {
 	color: #2b9c86;
+	
 }
 
 /* Sticky Navbar */
@@ -242,7 +250,7 @@ body {
 	height: 100%;
 }
 
-#canvas_copy {
+#canvas_copy, #canvas_tree {
 	display: none;
 }
 
@@ -278,6 +286,10 @@ body {
 	opacity: 0.5;
 	border: 3px solid white;
 	border-radius: 20px;
+}
+
+#trees {
+	text-align: center;
 }
 
 .active, .i_trees:hover {

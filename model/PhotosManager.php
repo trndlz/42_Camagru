@@ -12,4 +12,10 @@ class photosManager extends dbConfig {
 		$results = $rows->fetchAll(PDO::FETCH_ASSOC);
 		return $results;
 	}
+
+	public function addPhoto($id_user, $file) {
+		$db = parent::dbConnect();
+		$statement = $db->prepare("INSERT INTO photos(user_id, link) VALUES(?, ?)");
+		$statement->execute(array($id_user, $file));
+	}
 }

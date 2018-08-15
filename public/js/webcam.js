@@ -8,17 +8,24 @@ for (var i = 0; i < i_trees.length; i++) {
   });
 }
 
+function createImg() {
+    var canvas = document.getElementById('canvas_copy');
+    var canvas_tree = document.getElementById('canvas_tree');
+    document.getElementById('inp_img').value = canvas.toDataURL();
+    document.getElementById('tree').value = canvas.toDataURL();
+ }
+
 navigator.mediaDevices.getUserMedia({ audio: false, video: true })
 .then(function(stream) {
     var video = document.getElementById('videoElement');
     var snap = document.getElementById('snap');
     var canvas = document.getElementById("canvas");
+    var canvas_tree = document.getElementById("canvas_tree");
     var canvas_copy = document.getElementById("canvas_copy");
     var gray = document.getElementById("gray");
     var no_effect = document.getElementById("no_effect");
     var invert = document.getElementById("invert");
-    var tree0 = document.getElementById('tree0');
-    var tree1 = document.getElementById('tree1');
+    var upload = document.getElementById('upload');
     var ctx = canvas.getContext('2d');
     var videoWidth, videoHeight;
     var filter = '';
@@ -32,16 +39,16 @@ navigator.mediaDevices.getUserMedia({ audio: false, video: true })
         canvas.height = videoHeight;
         canvas_copy.width  = videoWidth;
         canvas_copy.height = videoHeight;
-        var selected_tree = 0;
         video.play();
         snap.onclick = function() {
             ctx.filter = filter;
+            upload.disabled = false;
             var header = document.getElementById("trees");
             var selected_tree = header.getElementsByClassName("active");
-            console.log(active_photo);
-            console.log('coucou');
             canvas.getContext('2d').drawImage(video, 0, 0, videoWidth, videoHeight, 0, 0, videoWidth, videoHeight);
             canvas.getContext('2d').drawImage(selected_tree[0], 0, 0, videoWidth, videoHeight, 0, 0, videoWidth, videoHeight);
+            canvas_tree.getContext('2d').drawImage(selected_tree[0], 0, 0, videoWidth, videoHeight, 0, 0, videoWidth, videoHeight);
+            console.log(selected_tree[0].src);
             canvas_copy.getContext('2d').drawImage(video, 0, 0, videoWidth, videoHeight, 0, 0, videoWidth, videoHeight);
         }
         gray.onclick = function() {

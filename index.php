@@ -20,7 +20,7 @@
 
 	<div class="header" id="stickyHeader">
 		<ul class="navbar">
-			<a href="index.php?action=add"><i class="fas fa-camera-retro"></i></a>
+			<a href="index.php?action=add" class="navlink"><i class="fas fa-camera-retro"></i></a>
 			<i class="camagru_title">&hearts;<span class="gru"></span></i>
 			<i class="far fa-user-circle"></i>
 		</ul>
@@ -33,6 +33,5 @@
 		Copyright 2018. VBNTMLP.
 	</div>
 	<script src="public/js/sticky_header.js"></script>
-	<!-- <script src="public/js/webcam.js"></script> -->
 </body>
 </html>
