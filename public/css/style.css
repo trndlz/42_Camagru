@@ -237,7 +237,9 @@ body {
 #videoElement, #canvas, #canvas_copy {
 	border: 6px solid #a1c181;
 	border-radius: 20px 20px;
-	max-width: 400px;
+	width: 100%;
+	max-width: 600px;
+	height: 100%;
 }
 
 #canvas_copy {
@@ -270,4 +272,16 @@ body {
 #cam_titles {
 	text-align: center;
 	color: #2b9c86;
+}
+
+.i_trees {
+	opacity: 0.5;
+	border: 3px solid white;
+	border-radius: 20px;
+}
+
+.active, .i_trees:hover {
+	opacity: 1;
+	border: 3px solid #97b678;
+	border-radius: 20px;
 }
