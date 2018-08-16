@@ -2,26 +2,21 @@
 
         require('model/photosmanager.php');
 
-        if (count($_POST) && (strpos($_POST['img'], 'data:image/png;base64') === 0) &&
-        (strpos($_POST['tree'], 'data:image/png;base64') === 0)) {
+        if (isset($_POST['tree']) && isset($_POST['img'])) {
             $img = $_POST['img'];
-            $tree = $_POST['tree'];
+            $tree_url = $_POST['tree'];
             $img = str_replace('data:image/png;base64,', '', $img);
             $img = str_replace(' ', '+', $img);
             $data = base64_decode($img);
             $file = 'public/upload/'.date("YmdHis").'.png';
-            if (file_put_contents($file, $data)) {
-                echo "<p>The canvas was saved as $file.</p>";
-            } else {
-                echo "<p>The canvas could not be saved.</p>";
-            }
-            $data_tree = imagecreatefrompng($tree);
-            print_r(getimagesize($data_tree));
-            $dataf = imagecreatefrompng($file);
-            echo "data_tree :".$data_tree."<br>";
-            echo "dataf :".$dataf."<br>";
-            // imagecopymerge($dataf, $data_tree, 0, 0, 0, 0, 640, 480, 100);
-            // imagepng($dataf);
+            if (!file_put_contents($file, $data))
+                echo "<p>The webcam image could not be saved</p>";
+            $imgcpy = imagecreatefrompng($file);
+            $treecpy = imagecreatefrompng($tree_url);
+            imagealphablending($treecpy, true);
+            imagesavealpha($treecpy, true);
+            imagecopy($imgcpy, $treecpy, 0, 0, 0, 0, 640, 480);
+            imagepng($imgcpy, $file);
             $db = new photosManager();
             $db->addPhoto('1', $file);
         }        
