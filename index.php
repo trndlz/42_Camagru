@@ -17,7 +17,6 @@
 	<div class="top-container">
 	  <h1 id="header_text">PASSION.<br>DENDROPHILE.</h1>
 	</div>
-
 	<div class="header" id="stickyHeader">
 		<ul class="navbar">
 			<a href="index.php?action=add" class="navlink"><i class="fas fa-camera-retro"></i></a>
