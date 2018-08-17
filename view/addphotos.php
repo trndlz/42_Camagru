@@ -38,7 +38,7 @@
         <div id="div_upload_files">
             <h1 class="cam_titles">Upload a photo...</h1>
             <p class="button_p">
-                <label for="file" class="label-file">Pick a pic</label>
+                <label for="file" class="webcam-button">Choose file</label>
                 <input id="file" class="input-file" type="file">
             </p>
         </div>
@@ -49,23 +49,19 @@
                 <input id="gray" type="button" value="Gray scale" class="webcam-button">
                 <input id="invert" type="button" value="Invert" class="webcam-button">
                 <input id="blur" type="button" value="Blur" class="webcam-button">
-            </p>
-            <video id="videoElement"></video>
-            <p class="button_p">
                 <input id="snap" type="button" disabled="true" value="Snapshot" class="webcam-button">
             </p>
+            <video id="videoElement"></video>
         </div>
         <div id="div_final_result">
             <h1 class="cam_titles">Happy ?</h1>
-            <canvas id="canvas" width="300" height="300"></canvas>
-            <p class="button_p">
-                <form method="POST" action="" onsubmit="createImg();">
+            <form method="POST" action="" onsubmit="createImg();">
                     <input id="inp_img" name="img" type="hidden" value="">
                     <input id="tree" name="tree" type="hidden" value="">
                     <input id="filter" name="filter" type="hidden" value="none">
-                    <input id="upload" type="Submit" value="Upload" id="label-file" disabled="true">
-                </form>
-            </p>
+                    <input id="upload" class="webcam-button" type="Submit" value="Upload" id="label-file" disabled="true">
+            </form>
+            <canvas id="canvas" width="300" height="300"></canvas>
         </div>
         <canvas id="canvas_copy" width="300" height="300"></canvas>
         <canvas id="canvas_tree" width="300" height="300"></canvas>
