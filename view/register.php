@@ -11,15 +11,11 @@
         $password2 = hash("whirlpool", $_POST["password2"]);
         $code = substr(md5(mt_rand()), 0, 15);
         if ($password1 != $password2) {
-            echo "<p class='failure'>Your account could not be created, please try-again</p>";
-            header('Location: index.php?action=register');
+            echo "<div id='failure'>Your account could not be created, please try-again</div>";
             exit ;
         }
-        $db->newUser($fullname, $email, $login, $password1, $code);
-        echo $code;
-        print_r($_POST);
-        echo "<p class='success'>Your account has been successfully created ! You will receive an activation email in a few seconds</p>";
-        // header('Location: index.php');
+        $db->newUser($fullname, $email, $login, $password1);
+        echo "<div id='success'>Your account has been successfully created ! You will receive an activation email in a few seconds</div>";
     }        
 ?>
 

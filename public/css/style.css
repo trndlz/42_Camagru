@@ -365,16 +365,32 @@ body {
 	flex-direction: column;
 }
 
-.success {
-	text-align: center;
-	font-weight: bold;
+#success {
+	position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #97b678;
+    text-align: center;
+    line-height: 2.5;
+	overflow: hidden;
 	color: white;
-	width: 60%;
-	font-size: 18px;
-	padding: 10px;
-	background-color: #97b678;
-	border: 1px solid green;
-	border-radius: 20px;
+	font-size: 15px;
+}
+
+#failure {
+	position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgb(224, 122, 122);
+    text-align: center;
+    line-height: 2.5;
+	overflow: hidden;
+	color: white;
+	font-size: 15px;
 }
 
 #div_use_webcam {

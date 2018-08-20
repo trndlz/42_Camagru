@@ -25,7 +25,7 @@
             }
             imagepng($imgcpy, $file);
             $db = new photosManager();
-            $db->addPhoto('1', $file);
+            $db->addPhoto($_SESSION['user'], $file);
             echo "<p class='success'>Your image was successfully saved !</p>";
         }        
         ?>
