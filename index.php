@@ -14,22 +14,24 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 </head>
 <body>
-	<div class="top-container">
-	  <h1 id="header_text">PASSION.<br>DENDROPHILE.</h1>
-	</div>
-	<div class="header" id="stickyHeader">
-		<ul class="navbar">
-			<a href="index.php?action=add" class="navlink"><i class="fas fa-camera-retro"></i></a>
-			<i class="camagru_title">&hearts;<span class="gru"></span></i>
-			<i class="far fa-user-circle"></i>
-		</ul>
-	</div>
-	<div class="content">
-	  <?php $controller = new Controller();
-	  $controller->loadModel(); ?>
-  </div>
-  <div class="footer">
-		Copyright 2018. VBNTMLP.
+	<div id="page">
+		<div class="top-container">
+		<h1 id="header_text">PASSION.<br>DENDROPHILE.</h1>
+		</div>
+		<div class="header" id="stickyHeader">
+			<ul class="navbar">
+				<a href="index.php?action=add" class="navlink"><i class="fas fa-camera-retro"></i></a>
+				<i class="camagru_title"><a href="index.php" class="camagru_title">&hearts;<span class="gru"></a></span></i>
+				<i class="far fa-user-circle"></i>
+			</ul>
+		</div>
+		<div class="content">
+			<?php $controller = new Controller();
+			$controller->loadModel(); ?>
+		</div>	
+		<div class="footer">
+			Copyright 2018. VBNTMLP.
+		</div>
 	</div>
 	<script src="public/js/sticky_header.js"></script>
 </body>

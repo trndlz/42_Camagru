@@ -13,9 +13,7 @@
         } else {
             echo "<div id='failure'>Log-in failed !</div>";
         }
-        
-        // header('Location: index.php');
-    }        
+    }
 ?>
 
 <h1 class="cam_titles">To access this page, please log-in first !</h1>

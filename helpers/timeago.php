@@ -21,7 +21,7 @@ function get_timeago($ptime)
         if ($d >= 1)
         {
             $r = round($d);
-            return 'about ' . $r . ' ' . $str . ( $r > 1 ? 's' : '' ) . ' ago';
+            return $r . ' ' . $str . ( $r > 1 ? 's' : '' ) . ' ago';
         }
     }
 }
