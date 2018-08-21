@@ -8,14 +8,22 @@ class photosManager extends dbConfig {
 
 	public function getAllPhotos() {
 		$db = parent::dbConnect();
-		$rows = $db->query('SELECT photos.photo_id, photos.link, photos.date, users.login FROM photos INNER JOIN users ON photos.user_id = users.user_id ORDER BY photos.date DESC LIMIT 20');
+		$rows = $db->query('SELECT photos.id_photo, photos.link, photos.date, users.login FROM photos INNER JOIN users ON photos.id_user = users.id_user ORDER BY photos.date DESC LIMIT 20');
+		$results = $rows->fetchAll(PDO::FETCH_ASSOC);
+		return $results;
+	}
+
+	public function getOnePhoto($id_photo) {
+		$db = parent::dbConnect();
+		$rows = $db->prepare('SELECT photos.id_photo, photos.link, photos.date, users.login FROM photos INNER JOIN users ON photos.id_user = users.id_user WHERE photos.id_photo = ? ORDER BY photos.date DESC LIMIT 20');
+		$rows->execute(array($id_photo));
 		$results = $rows->fetchAll(PDO::FETCH_ASSOC);
 		return $results;
 	}
 
 	public function addPhoto($id_user, $file) {
 		$db = parent::dbConnect();
-		$statement = $db->prepare("INSERT INTO photos(user_id, link) VALUES(?, ?)");
+		$statement = $db->prepare("INSERT INTO photos(id_user, link) VALUES(?, ?)");
 		$statement->execute(array($id_user, $file));
 	}
 

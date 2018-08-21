@@ -15,12 +15,12 @@
             exit ;
         }
         if ($password1 != $password2) {
-            header("Location: ?action=register&message=Your account could not be created, please try-again&message_type=failure");
+            header("Location: ?action=register&message=Two passwords do not match, please try-again&message_type=failure");
             exit ;
         }
         $db->newUser($fullname, $email, $login, $password1);
         header("Location: ?message=Your account has been successfully created ! You will receive an activation email in a few seconds&message_type=success");
-    }        
+    }
 ?>
 
 <script type="text/javascript">
@@ -31,37 +31,9 @@ function hideAndShowDiv() {
     y.style.display = 'flex';
 }
 
-function passCheck() {
-    var p1 = document.getElementById('password1');
-    var p2 = document.getElementById('password2');
-    var message = document.getElementById('message_match');
-    var length = document.getElementById('length_match');
-    var submit = document.getElementById('reg_submit');
-    var ok = "#66cc66";
-    var ko = "#ff6666";
-    if (p1.value.length > 8) {
-        length.style.color = ok;
-        length.innerHTML = "Password length OK !"
-        if (p1.value == p2.value) {
-            p2.style.backgroundColor = ok;
-            message.style.color = ok;
-            message.innerHTML = "Passwords match"
-            submit.disabled = false;
-        }
-        else {
-            p2.style.backgroundColor = ko;
-            message.style.color = ko;
-            message.innerHTML = "Passwords do not match"
-        }
-    }
-    else {
-        length.style.color = ko;
-        length.innerHTML = "Password length must be more than 8 characters !"
-    }
-}
-
 </script>
 <h1 class="cam_titles">Register to cama&hearts;green !</h1>
+<script src="public/js/checkpw.js"></script>
 <form action="" method="post" class="login_form" autocomplete="on">
     <input type="text" class="login_input" name="fullname" autocomplete="fullname"  placeholder="Enter your full name" required>
     <input type="text" class="login_input" name="email" autocomplete="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Enter your email" required>

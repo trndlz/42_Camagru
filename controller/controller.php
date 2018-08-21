@@ -43,6 +43,9 @@ class Controller {
                 if ($_GET['action'] == 'logout') {
                     require('view/logout.php');
                 }
+				if ($_GET['action'] == 'comment' && isset($_GET['id'])) {
+                    require('view/commentphoto.php');
+                }
             }
             else {
                 require('view/login.php');

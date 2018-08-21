@@ -21,12 +21,12 @@ function displayPhotos($array) {
 				<?php
 					if (isset($_SESSION['user'])) {
 						$test = new photosManager();
-						$like = $test->isLiked($line['photo_id'], $_SESSION['user']);
+						$like = $test->isLiked($line['id_photo'], $_SESSION['user']);
 						if ($like == 1)
-							echo "<a href='?dislike=".$line['photo_id']."' class='heart_icon liked'><i class='fas fa-heart'></i></a>";
+							echo "<a href='?dislike=".$line['id_photo']."' class='heart_icon liked'><i class='fas fa-heart'></i></a>";
 						else
-							echo "<a href='?like=".$line['photo_id']."' class='heart_icon'><i class='far fa-heart'></i></a>";
-						echo "<a href='#' class='comments_icon'><i class='far fa-comment-dots'></i></a>";	
+							echo "<a href='?like=".$line['id_photo']."' class='heart_icon'><i class='far fa-heart'></i></a>";
+						echo "<a href='?action=comment&id=".$line['id_photo']."' class='comments_icon'><i class='far fa-comment-dots'></i></a>";
 					} else {
 						?>
 						<a href='?action=login' class='heart_icon'><i class='far fa-heart'></i></a>

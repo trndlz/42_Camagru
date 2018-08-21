@@ -25,17 +25,35 @@ class userManager extends dbConfig {
 		return (0);
 	}
 
-	public function getUserData($user_id) {
+	public function updateEmail($new_email, $id_user) {
 		$db = parent::dbConnect();
-		$stmt = $db->prepare("SELECT login, mail FROM users WHERE user_id = ?");
-		$stmt->execute(array($user_id));
+		$sql = "UPDATE users SET mail = ? WHERE id_user = ?";
+		$db->prepare($sql)->execute(array($new_email, $id_user));
+	}
+
+	public function updateLogin($new_login, $id_user) {
+		$db = parent::dbConnect();
+		$sql = "UPDATE users SET login = ? WHERE id_user = ?";
+		$db->prepare($sql)->execute(array($new_login, $id_user));
+	}
+
+	public function updatePass($new_pass, $id_user) {
+		$db = parent::dbConnect();
+		$sql = "UPDATE users SET password = ? WHERE id_user = ?";
+		$db->prepare($sql)->execute(array($new_pass, $id_user));
+	}
+
+	public function getUserData($id_user) {
+		$db = parent::dbConnect();
+		$stmt = $db->prepare("SELECT login, mail FROM users WHERE id_user = ?");
+		$stmt->execute(array($id_user));
 		$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		return ($results);
 	}
 
 	public function loginExists($login) {
 		$db = parent::dbConnect();
-		$stmt = $db->prepare("SELECT user_id FROM users WHERE login = ?");
+		$stmt = $db->prepare("SELECT id_user FROM users WHERE login = ?");
 		$stmt->execute(array($login));
 		$id_u = $stmt->fetchColumn();
 		return ($id_u);
@@ -43,8 +61,19 @@ class userManager extends dbConfig {
 
 	public function loginUser($login, $password) {
 		$db = parent::dbConnect();
-		$stmt = $db->prepare("SELECT user_id FROM users WHERE login = ? AND password = ?");
+		$stmt = $db->prepare("SELECT id_user FROM users WHERE login = ? AND password = ?");
 		$stmt->execute(array($login, $password));
+		$id_u = $stmt->fetchColumn();
+		if ($id_u) {
+			return ($id_u);
+		}
+		return (0);
+	}
+
+	public function loginUserId($id_user, $password) {
+		$db = parent::dbConnect();
+		$stmt = $db->prepare("SELECT id_user FROM users WHERE id_user = ? AND password = ?");
+		$stmt->execute(array($id_user, $password));
 		$id_u = $stmt->fetchColumn();
 		if ($id_u) {
 			return ($id_u);
