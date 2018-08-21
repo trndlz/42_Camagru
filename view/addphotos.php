@@ -10,7 +10,7 @@
             $data = base64_decode($img);
             $file = 'public/upload/'.date("YmdHis").'.png';
             if (!file_put_contents($file, $data))
-                echo "<div id='failure'>The webcam image could not be saved</div>";
+                header("Location: ?action=add&message=The webcam image could not be saved :( You can now login&message_type=failure");
             $imgcpy = imagecreatefrompng($file);
             $treecpy = imagecreatefrompng($tree_url);
             imagealphablending($treecpy, true);
@@ -26,7 +26,7 @@
             imagepng($imgcpy, $file);
             $db = new photosManager();
             $db->addPhoto($_SESSION['user'], $file);
-            echo "<div id='success'>Your image was successfully saved !</div>";
+            header("Location: ?message=Your image was successfully saved !&message_type=success");
         }        
         ?>
         

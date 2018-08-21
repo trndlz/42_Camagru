@@ -32,11 +32,13 @@ class Controller {
         }
         else
         {
-            // Session check
+            // Only for logged-in users
             if (isset($_SESSION['user'])) {
-                // Add photos with webcam / upload
                 if ($_GET['action'] == 'add') {
                     require('view/addphotos.php');
+                }
+                if ($_GET['action'] == 'userpage') {
+                    require('view/userpage.php');
                 }
                 if ($_GET['action'] == 'logout') {
                     require('view/logout.php');

@@ -25,6 +25,22 @@ class userManager extends dbConfig {
 		return (0);
 	}
 
+	public function getUserData($user_id) {
+		$db = parent::dbConnect();
+		$stmt = $db->prepare("SELECT login, mail FROM users WHERE user_id = ?");
+		$stmt->execute(array($user_id));
+		$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		return ($results);
+	}
+
+	public function loginExists($login) {
+		$db = parent::dbConnect();
+		$stmt = $db->prepare("SELECT user_id FROM users WHERE login = ?");
+		$stmt->execute(array($login));
+		$id_u = $stmt->fetchColumn();
+		return ($id_u);
+	}
+
 	public function loginUser($login, $password) {
 		$db = parent::dbConnect();
 		$stmt = $db->prepare("SELECT user_id FROM users WHERE login = ? AND password = ?");

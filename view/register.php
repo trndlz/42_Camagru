@@ -10,6 +10,10 @@
         $password1 = hash("whirlpool", $_POST["password1"]);
         $password2 = hash("whirlpool", $_POST["password2"]);
         $code = substr(md5(mt_rand()), 0, 15);
+        if ($db->loginExists($login) > 0) {
+            header("Location: ?action=register&message=This login already exists, please try-again&message_type=failure");
+            exit ;
+        }
         if ($password1 != $password2) {
             header("Location: ?action=register&message=Your account could not be created, please try-again&message_type=failure");
             exit ;

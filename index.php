@@ -23,7 +23,7 @@
 			<ul class="navbar">
 				<a href="?action=add" class="navlink"><i class="fas fa-camera-retro"></i></a>
 				<i class="camagru_title"><a href="index.php" class="camagru_title"><i class="fas fa-tree"></i><span class="gru"></a></span></i>
-				<i class="far fa-user-circle"></i>
+				<a href="?action=userpage" class="navlink"><i class="far fa-user-circle"></i></a>
 				<?php if (isset($_SESSION['user'])) { ?>
 				<a href="?action=logout" class="navlink"><i class="fas fa-sign-out-alt"></i></a> <?php } ?> 
 			</ul>
