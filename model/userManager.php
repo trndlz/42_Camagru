@@ -9,17 +9,17 @@ class userManager extends dbConfig {
 		$statement = $db->prepare("INSERT INTO users(fullname, mail, login, password, active, code) VALUES(?, ?, ?, ?, ?, ?)");
 		$code = substr(md5(mt_rand()), 0, 15);
 		$statement->execute(array($fullname, $mail, $login, $password1, '0', $code));
-		$this->sendConfEmail($fullname, $mail, $code);
+		$this->sendConfEmail($fullname, $mail, $code, $login);
 	}
 
-	public function checkVerifCode($email, $code) {
+	public function checkVerifCode($login, $code) {
 		$db = parent::dbConnect();
-		$stmt = $db->prepare("SELECT code FROM users WHERE mail = ? AND code = ?");
-		$stmt->execute(array($email, $code));
+		$stmt = $db->prepare("SELECT code FROM users WHERE login = ? AND code = ?");
+		$stmt->execute(array($login, $code));
 		$db_code = $stmt->fetchColumn();
 		if ($db_code) {
-			$sql = "UPDATE users SET active = 1 WHERE mail = ? AND code = ?";
-			$db->prepare($sql)->execute(array($email, $code));
+			$sql = "UPDATE users SET active = 1 WHERE login = ? AND code = ?";
+			$db->prepare($sql)->execute(array($login, $code));
 			return (1);
 		}
 		return (0);
@@ -36,14 +36,14 @@ class userManager extends dbConfig {
 		return (0);
 	}
 
-	public function sendConfEmail($fullname, $email, $code) {
+	public function sendConfEmail($fullname, $email, $code, $login) {
 		$subject = 'Welcome to Camagreen !';
 		$message = '
 		<html>
 			<head></head>
 			<body>
 				<p>Dear ' . $fullname . ', thanks for registering to Cama&hearts;green !</p>
-				<p>To activate your account click on the following link : <a href="http://localhost:8080/camagru/index.php?action=activate&email=' . $email . '&code=' . $code .'">Here</a></p>
+				<p>To activate your account click on the following link : <a href="http://localhost:8080/camagru/index.php?action=activate&login=' . $login . '&code=' . $code .'">Here</a></p>
 			</body>
 		</html>';
 		$headers[] = 'MIME-Version: 1.0';

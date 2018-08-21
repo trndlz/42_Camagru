@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	require_once('controller/controller.php');
 ?>
 
@@ -20,9 +21,11 @@
 		</div>
 		<div class="header" id="stickyHeader">
 			<ul class="navbar">
-				<a href="index.php?action=add" class="navlink"><i class="fas fa-camera-retro"></i></a>
-				<i class="camagru_title"><a href="index.php" class="camagru_title">&hearts;<span class="gru"></a></span></i>
+				<a href="?action=add" class="navlink"><i class="fas fa-camera-retro"></i></a>
+				<i class="camagru_title"><a href="index.php" class="camagru_title"><i class="fas fa-tree"></i><span class="gru"></a></span></i>
 				<i class="far fa-user-circle"></i>
+				<?php if (isset($_SESSION['user'])) { ?>
+				<a href="?action=logout" class="navlink"><i class="fas fa-sign-out-alt"></i></a> <?php } ?> 
 			</ul>
 		</div>
 		<div class="content">

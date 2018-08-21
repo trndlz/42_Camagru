@@ -1,11 +1,19 @@
 <?php
 
-session_start();
-
 class Controller {
 
     public function loadModel()
     {
+        // Display messages
+        if (isset($_GET['message']) && isset($_GET['message_type']))
+        {
+            if ($_GET['message_type'] == "success")
+                echo "<div id='success'>";
+            else
+                echo "<div id='failure'>";
+            echo $_GET['message'];
+            echo "</div>";
+        }
         // By default, display all photos
         if (!isset($_GET['action']) && empty($_GET['action'])) {
             require('model/photosmanager.php');
@@ -29,6 +37,9 @@ class Controller {
                 // Add photos with webcam / upload
                 if ($_GET['action'] == 'add') {
                     require('view/addphotos.php');
+                }
+                if ($_GET['action'] == 'logout') {
+                    require('view/logout.php');
                 }
             }
             else {

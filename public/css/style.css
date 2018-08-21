@@ -82,14 +82,13 @@ body {
 	align-self: center;
 }
 
-.fa-camera-retro, .fa-user-circle {
+.fa-camera-retro, .fa-user-circle, .fa-sign-out-alt{
 	font-size: 30px;
 	align-self: center;
 }
 
-.fa-camera-retro:hover, .fa-user-circle:hover {
+.fa-camera-retro:hover, .fa-user-circle:hover, .fa-sign-out-alt:hover, .camagru_title:hover {
 	color: #2b9c86;
-	
 }
 
 /* Sticky Navbar */
@@ -270,6 +269,10 @@ body {
   	position: absolute;
 }
 
+.liked {
+	color: red;
+}
+
 .comments_icon {
 	color: white;
 	top: 78%;
@@ -284,7 +287,7 @@ body {
 }
 
 .comments_icon:hover {
-	color:green;
+	color: #2b9c86;
 	opacity: 1;
   }
 

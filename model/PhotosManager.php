@@ -32,7 +32,13 @@ class photosManager extends dbConfig {
 
 	public function like($id_user, $id_photo) {
 		$db = parent::dbConnect();
-		$statement = $db->prepare("INSERT INTO likes(id_photo, id_user) VALUES(?, ?)");
+		$statement = $db->prepare("INSERT INTO likes(id_user, id_photo) VALUES(?, ?)");
+		$statement->execute(array($id_user, $id_photo));
+	}
+
+	public function dislike($id_user, $id_photo) {
+		$db = parent::dbConnect();
+		$statement = $db->prepare("DELETE FROM likes WHERE id_user = ? AND id_photo = ?");
 		$statement->execute(array($id_user, $id_photo));
 	}
 }
