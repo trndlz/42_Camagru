@@ -9,7 +9,7 @@
         $id_u = $db->loginUser($login, $password);
         if ($id_u != 0) {
             $_SESSION['user'] = $id_u;
-            header("Location: ?message=Log-in successful !&message_type=success");
+            header("Location: ?message=Log-in successful !&message_type=success");  
         } else {
             header("Location: index.php?action=login&message=Log-in failed&message_type=failure");
         }
