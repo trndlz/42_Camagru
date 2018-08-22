@@ -61,11 +61,14 @@ class userManager extends dbConfig {
 
 	public function loginUser($login, $password) {
 		$db = parent::dbConnect();
-		$stmt = $db->prepare("SELECT id_user FROM users WHERE login = ? AND password = ?");
+		$stmt = $db->prepare("SELECT id_user, active FROM users WHERE login = ? AND password = ?");
 		$stmt->execute(array($login, $password));
-		$id_u = $stmt->fetchColumn();
-		if ($id_u) {
-			return ($id_u);
+		$id_u = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		if ($id_u['0']['active'] == 0) {
+			return (-1);
+		}
+		if ($id_u['0']['id_user']) {
+			return ($id_u['0']['id_user']);
 		}
 		return (0);
 	}

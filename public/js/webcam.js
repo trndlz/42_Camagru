@@ -11,8 +11,8 @@ gray.style.filter = 'grayscale(100%)';
 var no_effect = document.getElementById("no_effect");
 var invert = document.getElementById("invert");
 invert.style.filter = 'invert(100%)';
-var blur = document.getElementById("blur");
-blur.style.filter = 'blur(1px)';
+var sepia = document.getElementById("sepia");
+sepia.style.filter = 'sepia(100%)';
 var snap = document.getElementById('snap');
 
 // Hidden forms
@@ -83,10 +83,10 @@ gray.onclick = function() {
     video.style.filter = filter;
 }
 
-// Blur snapshot
-blur.onclick = function() {
-    filter = 'blur(2px)';
-    form_filter.value = 'grayscale';
+// Sepia snapshot
+sepia.onclick = function() {
+    filter = 'sepia(100%)';
+    form_filter.value = 'sepia';
     video.style.filter = filter;
 }
 

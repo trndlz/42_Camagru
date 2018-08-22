@@ -16,11 +16,12 @@ class Controller {
         }
         // By default, display all photos
         if (!isset($_GET['action']) && empty($_GET['action'])) {
-            require('model/photosmanager.php');
+            // require('model/photosmanager.php');
             require('view/viewphotos.php');
-            $db = new photosManager();
-            $photos = $db->getAllPhotos();
-            displayPhotos($photos);
+            // $db = new photosManager();
+            // $photos = $db->getAllPhotos();
+            // $total = $db->countNbPhotos();
+            // displayPhotos($photos, $total);
         }
         // All other available pages for un-registered users
         else if ($_GET['action'] == 'login') {

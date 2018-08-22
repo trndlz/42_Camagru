@@ -16,8 +16,12 @@ $single_photo = $photo->getOnePhoto($_GET['id']);
 $comment_data = $comments->getAllComments($_GET['id']);
 displayComments($single_photo, $comment_data);
 
-function displayComments($photo, $data) { ?>
-		<img src='<?= $photo[0]['link'];?>' class="img_comment">
+function displayComments($single_photo, $data) { ?>
+	<div id="image_post_comment">
+		<img src='<?= $single_photo[0]['link'];?>' class="img_comment">
+		<p id='img_info'>Posted from <b><?= htmlspecialchars($single_photo[0]['login']) ?></b>
+		<span class='com_date'><?=strtoupper(get_timeago(strtotime($single_photo[0]['date']))); ?> </span></p>
+</div>
 		<div class="comment_box">
 			<?php
 			foreach ($data as $ind_com) {
@@ -31,6 +35,6 @@ function displayComments($photo, $data) { ?>
 		<textarea class="textbox" rows="4" maxlength="250" name="message" placeholder="Type your comment here !" required></textarea>
 		<input type="submit" class="textbox" value="Send">
 		</form>
-		</div>	
+		</div>
 		<?php
 }

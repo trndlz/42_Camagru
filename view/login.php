@@ -7,7 +7,9 @@
         $login = htmlspecialchars($_POST["username"]);
         $password = hash("whirlpool", $_POST["password"]);
         $id_u = $db->loginUser($login, $password);
-        if ($id_u != 0) {
+        if ($id_u == -1) {
+            header("Location: index.php?action=login&message=You have to activate your account!&message_type=failure");
+        } else if ($id_u > 0) {
             $_SESSION['user'] = $id_u;
             header("Location: ?message=Log-in successful !&message_type=success");  
         } else {

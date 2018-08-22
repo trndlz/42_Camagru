@@ -23,6 +23,11 @@
             if ($_POST['filter'] == 'invert') {
                 imagefilter($imgcpy, IMG_FILTER_NEGATE);
             }
+            if ($_POST['filter'] == 'sepia') {
+                imagefilter($imgcpy,IMG_FILTER_GRAYSCALE);
+                imagefilter($imgcpy,IMG_FILTER_BRIGHTNESS,-30);
+                imagefilter($imgcpy,IMG_FILTER_COLORIZE, 90, 55, 30);
+            }
             imagepng($imgcpy, $file);
             $db = new photosManager();
             $db->addPhoto($_SESSION['user'], $file);
@@ -49,7 +54,7 @@
                 <input id="no_effect" type="button" value="No effect" class="webcam-button">
                 <input id="gray" type="button" value="Gray scale" class="webcam-button">
                 <input id="invert" type="button" value="Invert" class="webcam-button">
-                <input id="blur" type="button" value="Blur" class="webcam-button">
+                <input id="sepia" type="button" value="Sepia" class="webcam-button">
                 <input id="snap" type="button" disabled="true" value="Snapshot" class="webcam-button">
             </p>
             <video id="videoElement"></video>
