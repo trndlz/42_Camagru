@@ -4,7 +4,7 @@ function get_timeago($ptime)
     $estimate_time = time() - $ptime;
     if ($estimate_time < 1)
     {
-        return 'less than 1 second ago';
+        return '1 second ago';
     }
     $condition = array(
                 12 * 30 * 24 * 60 * 60  =>  'year',
