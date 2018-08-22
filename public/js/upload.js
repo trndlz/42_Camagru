@@ -5,14 +5,6 @@ var canvas = document.getElementById("canvas");
 var canvas_tree = document.getElementById("canvas_tree");
 var canvas_copy = document.getElementById("canvas_copy");
 var overlay_image = document.getElementById("overlay");
-var final_image = document.getElementById("modal_result");
-
-// Closing modal
-window.onclick = function(event) {
-    if (event.target == final_image) {
-        final_image.style.display = "none";
-    }
-}
 
 // Buttons
 var gray = document.getElementById("gray");
@@ -25,6 +17,7 @@ sepia.style.filter = 'sepia(100%)';
 var snap = document.getElementById('snap');
 
 // Hidden forms
+var upload = document.getElementById('upload');
 var ctx = canvas.getContext('2d');
 var videoWidth, videoHeight;
 var form_filter = document.getElementById('filter');
@@ -48,6 +41,14 @@ function treeSelector() {
     return selected_tree[0];
 }
 
+// Upload file
+document.getElementById('file').onchange = function(e) {
+    var img = new Image();
+    img.onload = draw;
+    img.onerror = failed;
+    img.src = URL.createObjectURL(this.files[0]);
+  };
+
 // Hide any div
 function hideDiv(x) {
     var x = document.getElementById(x);
@@ -58,6 +59,23 @@ function hideDiv(x) {
 function showDiv(x) {
     var x = document.getElementById(x);
     x.style.display = 'flex';
+}
+
+// Draw in canvas_copy uploaded file
+function draw() {
+canvas.width = 640;
+canvas.height = 480;
+ctx.drawImage(this, 0,0);
+canvas_copy.getContext('2d').drawImage(this, 0,0);
+ctx.drawImage(treeSelector(), 0, 0, videoWidth, videoHeight, 0, 0, videoWidth, videoHeight);
+var selected_tree = treeSelector();
+document.getElementById('tree').value = selected_tree.src;
+hideDiv('div_use_webcam');
+showDiv('div_final_result');
+upload.disabled = false;
+}
+function failed() {
+    alert("Only image files are accepted. Preferably in 640x480 !");
 }
 
 // Gray snapshot
@@ -117,7 +135,7 @@ navigator.mediaDevices.getUserMedia({ audio: false, video: true })
             canvas.getContext('2d').drawImage(video, 0, 0, videoWidth, videoHeight, 0, 0, videoWidth, videoHeight);
             canvas.getContext('2d').drawImage(current_tree, 0, 0, videoWidth, videoHeight, 0, 0, videoWidth, videoHeight);
             canvas_copy.getContext('2d').drawImage(video, 0, 0, videoWidth, videoHeight, 0, 0, videoWidth, videoHeight);
-            final_image.style.display = "block";
+            showDiv('div_final_result');
         }
     };
 })
