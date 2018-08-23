@@ -11,8 +11,11 @@
             $img = str_replace(' ', '+', $img);
             $data = base64_decode($img);
             $file = 'public/upload/'.date("YmdHis").'.png';
-            if (!file_put_contents($file, $data))
-                header("Location: ?action=add&message=The webcam image could not be saved :( You can now login&message_type=failure");
+            if (!file_put_contents($file, $data)) {
+                $_SESSION['message'] = 'The webcam image could not be saved :(';
+                $_SESSION['message_type'] = 'failure';
+                header("Location: ?action=add");
+            }
             $imgcpy = imagecreatefrompng($file);
             $treecpy = imagecreatefrompng($tree_url);
             imagealphablending($treecpy, true);
@@ -32,12 +35,16 @@
             }
             imagepng($imgcpy, $file);
             $db->addPhoto($_SESSION['user'], $file);
-            header("Location: ?action=add&message=Your image was successfully saved !&message_type=success");
+            $_SESSION['message'] = 'Your image was successfully saved !';
+            $_SESSION['message_type'] = 'success';
+            header("Location: ?action=add");
         }
         
         if (isset($_POST['id_photo_delete']) && $_POST['id_photo_delete'] != '') {
             $db->deletePhoto($_POST['id_photo_delete']);
-            header("Location: ?action=add&message=Your photo has been deleted successfully !&message_type=success");
+            $_SESSION['message'] = 'Your photo has been deleted successfully !';
+            $_SESSION['message_type'] = 'success';
+            header("Location: ?action=add");
         }
         ?>
     

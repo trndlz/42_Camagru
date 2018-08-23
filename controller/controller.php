@@ -5,14 +5,16 @@ class Controller {
     public function loadModel()
     {
         // Display messages
-        if (isset($_GET['message']) && isset($_GET['message_type']))
+        if (isset($_SESSION['message']) && isset($_SESSION['message_type']))
         {
-            if ($_GET['message_type'] == "success")
+            if ($_SESSION['message_type'] == "success")
                 echo "<div id='success'>";
             else
                 echo "<div id='failure'>";
-            echo $_GET['message'];
+            echo $_SESSION['message'];
             echo "</div>";
+            unset($_SESSION['message_type']);
+            unset($_SESSION['message']);
         }
         // By default, display all photos
         if (!isset($_GET['action']) && empty($_GET['action'])) {
@@ -25,6 +27,12 @@ class Controller {
             require('view/register.php');
         } else if ($_GET['action'] == 'activate') {
             require('view/activate.php');
+        } else if ($_GET['action'] == 'forgot') {
+            require('view/forgot.php');
+        } else if ($_GET['action'] == 'retreive') {
+            require('view/retreive.php');
+        } else if ($_GET['action'] == 'changecode') {
+            require('view/changecode.php');
         }
         else
         {

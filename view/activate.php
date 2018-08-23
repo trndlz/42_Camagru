@@ -5,9 +5,13 @@
     if (isset($_GET['code']) && isset($_GET['login'])) {
         $db = new userManager();
         if ($db->checkVerifCode($_GET['login'], $_GET['code']) == 1) {
-            header("Location: ?action=login&message=Accound activated ! You can now login&message_type=success");
+            $_SESSION['message'] = 'Accound activated ! You can now login';
+            $_SESSION['message_type'] = 'success';
+            header("Location: index.php?action=login");
         } else {
-            header("Location: ?action=login&message=Wrong activation code given :(&message_type=failure");
+            $_SESSION['message'] = 'Wrong activation code given :(';
+            $_SESSION['message_type'] = 'failure';
+            header("Location: index.php?action=login");
         }
     }
 ?>

@@ -2,7 +2,6 @@
 var video = document.getElementById('videoElement');
 var filter = 'none'; 
 var canvas = document.getElementById("canvas");
-var canvas_tree = document.getElementById("canvas_tree");
 var canvas_copy = document.getElementById("canvas_copy");
 var overlay_image = document.getElementById("overlay");
 var final_image = document.getElementById("modal_result");

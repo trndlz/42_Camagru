@@ -9,8 +9,12 @@
             $img = str_replace(' ', '+', $img);
             $data = base64_decode($img);
             $file = 'public/upload/'.date("YmdHis").'.png';
-            if (!file_put_contents($file, $data))
-                header("Location: ?action=add&message=The webcam image could not be saved :( You can now login&message_type=failure");
+            if (!file_put_contents($file, $data)) {
+                $_SESSION['message'] = 'Your image could not be uploaded :(';
+                $_SESSION['message_type'] = 'failure';
+                header("Location: index.php");
+            }
+                
             $imgcpy = imagecreatefrompng($file);
             $treecpy = imagecreatefrompng($tree_url);
             imagealphablending($treecpy, true);
@@ -31,9 +35,12 @@
             imagepng($imgcpy, $file);
             $db = new photosManager();
             $db->addPhoto($_SESSION['user'], $file);
-            header("Location: ?message=Your image was successfully saved !&message_type=success");
+            $_SESSION['message'] = 'Your image was successfully saved !';
+            $_SESSION['message_type'] = 'success';
+            header("Location: index.php");
         }        
         ?>
+
         <div id="upload_page">
             <h1 class="cam_titles">Chose a tree !</h1>
             <div id="div_choose_trees">
@@ -49,6 +56,7 @@
                 </p>
             </div>
         </div>
+
         <div id="modal_result">
             <div id="div_final_result">
                 <h1 class="cam_titles">Happy with this picture ?</h1>
@@ -62,5 +70,4 @@
             </div>
         </div>
         <canvas id="canvas_copy" width="300" height="300"></canvas>
-        <canvas id="canvas_tree" width="300" height="300"></canvas>
         <script src="public/js/upload.js"></script>

@@ -11,20 +11,27 @@
         $password2 = hash("whirlpool", $_POST["password2"]);
         $code = substr(md5(mt_rand()), 0, 15);
         if ($db->loginExists($login) > 0) {
-            header("Location: ?action=register&message=This login already exists, please try-again&message_type=failure");
+            $_SESSION['message'] = 'This login already exists, please try-again';
+            $_SESSION['message_type'] = 'failure';
+            header("Location: ?action=register");
             exit ;
         }
         if ($password1 != $password2) {
-            header("Location: ?action=register&message=Two passwords do not match, please try-again&message_type=failure");
+            $_SESSION['message'] = 'Two passwords do not match, please try-again';
+            $_SESSION['message_type'] = 'failure';
+            header("Location: ?action=register");
             exit ;
         }
         $db->newUser($fullname, $email, $login, $password1);
-        header("Location: ?message=Your account has been successfully created ! You will receive an activation email in a few seconds&message_type=success");
+        $_SESSION['message'] = 'Your account has been successfully created ! You will receive an activation email in a few seconds';
+        $_SESSION['message_type'] = 'success';
+        header("Location: index.php");
     }
 ?>
 
 <div id="register_page">
     <h1 class="cam_titles">Register to cama&hearts;green !</h1>
+    <script src="public/js/checkpw.js"></script>
     <form action="" method="post" class="login_form" autocomplete="on">
         <input type="text" class="login_input" name="fullname" autocomplete="fullname"  placeholder="Enter your full name" required>
         <input type="text" class="login_input" name="email" autocomplete="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Enter your email" required>

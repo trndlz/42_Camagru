@@ -310,8 +310,8 @@ PAGE // ADDPHOTOS.PHP
 	flex-direction: row;
 	justify-content: space-evenly;
 	align-items: center;
-	flex: 1 0 50%;
 	padding: 15px 0 15px 0;
+	margin: auto;
 }
 
 #div_use_webcam {
@@ -445,15 +445,15 @@ PAGE // UPLOADPHOTO.PHP
 	flex-direction: column;
 	flex-wrap: wrap;
 	align-self: flex-start;
-	flex: 1 0 50%;
-	width: 300px;
+	width: 100%;
 }
 
 #upload_page {
+	width: 100%;
 	display: flex;
 	flex-direction: column;
-	align-content: center;
-	justify-content: center;
+	align-content: flex-start;
+	justify-content: flex-end;
 }
 
 /* --------------------------------------------------
@@ -587,6 +587,7 @@ PAGE // COMMENTPHOTO.PHP
 
 .comment_box {
 	max-width: 400px;
+	width: 100%;
 	margin: 0px 10px 0px 10px;
 }
 
@@ -613,8 +614,6 @@ FOOTER
 }
 
 /* Containers of each block  */
-
-
 
 /* --------------------------------------------------
 LOGIN PAGE
@@ -667,4 +666,24 @@ REGISTER PAGE
 	flex-direction: column;
 	align-content: center;
 	justify-content: center;
+}
+
+/* --------------------------------------------------
+USER PAGE
+-------------------------------------------------- */
+
+#user_page {
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	justify-content: center;
+}
+
+.user_field {
+	padding: 5px 5px 5px 15px;
+}
+
+.checkbox {
+	margin: 15px;
+	
 }

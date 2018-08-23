@@ -6,9 +6,9 @@ class userManager extends dbConfig {
 
 	public function newUser($fullname, $mail, $login, $password1) {
 		$db = parent::dbConnect();
-		$statement = $db->prepare("INSERT INTO users(fullname, mail, login, password, active, code) VALUES(?, ?, ?, ?, ?, ?)");
+		$statement = $db->prepare("INSERT INTO users(fullname, mail, login, password, active, code, notification) VALUES(?, ?, ?, ?, ?, ?, ?)");
 		$code = substr(md5(mt_rand()), 0, 15);
-		$statement->execute(array($fullname, $mail, $login, $password1, '0', $code));
+		$statement->execute(array($fullname, $mail, $login, $password1, '0', $code, '1'));
 		$this->sendConfEmail($fullname, $mail, $code, $login);
 	}
 
@@ -20,6 +20,9 @@ class userManager extends dbConfig {
 		if ($db_code) {
 			$sql = "UPDATE users SET active = 1 WHERE login = ? AND code = ?";
 			$db->prepare($sql)->execute(array($login, $code));
+			$new_code = substr(md5(mt_rand()), 0, 15);
+			$sql = "UPDATE users SET code = ? WHERE login = ?";
+			$db->prepare($sql)->execute(array($new_code, $login));
 			return (1);
 		}
 		return (0);
@@ -43,11 +46,35 @@ class userManager extends dbConfig {
 		$db->prepare($sql)->execute(array($new_pass, $id_user));
 	}
 
+	public function updatePassFromLogin($new_pass, $login) {
+		$db = parent::dbConnect();
+		$sql = "UPDATE users SET password = ? WHERE login = ?";
+		$db->prepare($sql)->execute(array($new_pass, $login));
+	}
+
+
+	public function updateNotif($new_notif, $id_user) {
+		$db = parent::dbConnect();
+		$sql = "UPDATE users SET notification = ? WHERE id_user = ?";
+		$db->prepare($sql)->execute(array($new_notif, $id_user));
+	}
+
 	public function getUserData($id_user) {
 		$db = parent::dbConnect();
-		$stmt = $db->prepare("SELECT login, mail FROM users WHERE id_user = ?");
+		$stmt = $db->prepare("SELECT login, mail, notification FROM users WHERE id_user = ?");
 		$stmt->execute(array($id_user));
 		$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		return ($results);
+	}
+
+	public function getUserDataFromLogin($login) {
+		$db = parent::dbConnect();
+		$stmt = $db->prepare("SELECT login, mail, notification, code, fullname FROM users WHERE login = ?");
+		$stmt->execute(array($login));
+		$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		if (!isset($results['0'])) {
+			return (0);
+		}
 		return ($results);
 	}
 
@@ -99,6 +126,26 @@ class userManager extends dbConfig {
 		$headers[] = 'MIME-Version: 1.0';
 		$headers[] = 'Content-type: text/html; charset=iso-8859-1';
 		mail($email, $subject, $message, implode("\r\n", $headers));
+	}
+
+	public function sendRecoveryMail($login) {
+		$data = $this->getUserDataFromLogin($login);
+		if ($data == 0) {
+			return (0);
+		}
+		$subject = 'Retreive your password on Camagreen !';
+		$message = '
+		<html>
+			<head></head>
+			<body>
+				<p>Dear ' . $data[0]['fullname'] . ', we are here to save your account !</p>
+				<p>To create a new password, click <a href="http://localhost:8080/camagru/index.php?action=retreive&login=' . $data[0]['login'] . '&code=' . $data[0]['code'] .'">here</a></p>
+			</body>
+		</html>';
+		$headers[] = 'MIME-Version: 1.0';
+		$headers[] = 'Content-type: text/html; charset=iso-8859-1';
+		mail($data[0]['mail'], $subject, $message, implode("\r\n", $headers));
+		return (1);
 	}
 }
 

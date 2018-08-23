@@ -8,8 +8,11 @@ $photo = new photosManager();
 $comments = new commentsManager();
 
 if (isset($_POST['message'])) {
-	$comments->addComment($_GET['id'], $_SESSION['user'], $_POST['message']);
-	header("Location: ?action=comment&id=".$_GET['id']."&message=Comment successfully sent!&message_type=success");
+	$id_comment = $comments->addComment($_GET['id'], $_SESSION['user'], $_POST['message']);
+	$_SESSION['message'] = 'Comment successfully sent!';
+	$_SESSION['message_type'] = 'success';
+	$comments->sendCommentNotif($id_comment);
+	header("Location: ?action=comment&id=".$_GET['id']);
 }
 
 $single_photo = $photo->getOnePhoto($_GET['id']);

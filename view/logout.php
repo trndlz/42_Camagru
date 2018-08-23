@@ -1,5 +1,7 @@
 <?php
     $_SESSION = array();
     session_destroy();
-    header("Location: ?message=Log-out successful&message_type=success");
+    $_SESSION['message'] = 'Log-out successful';
+	$_SESSION['message_type'] = 'success';
+    header("Location: index.php");
 ?>
