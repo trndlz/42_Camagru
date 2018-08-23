@@ -34,20 +34,20 @@
             header("Location: ?message=Your image was successfully saved !&message_type=success");
         }        
         ?>
-        <h1 class="cam_titles">Photo upload</h1>
-        <h1 class="cam_titles">Chose a tree !</h1>
-        <div id="div_choose_trees">
-        
-            <img src="public/img/tree1.png" class="i_trees active" width="25%">
-            <img src="public/img/tree2.png" class="i_trees" width="25%">
-            <img src="public/img/tree3.png" class="i_trees" width="25%">
-        </div>
-        <div id="div_upload_files">
-            <h1 class="cam_titles">Chose a photo !</h1>
-            <p class="button_p">
-                <label for="file" class="webcam-button">Choose file</label>
-                <input id="file" class="input-file" type="file">
-            </p>
+        <div id="upload_page">
+            <h1 class="cam_titles">Chose a tree !</h1>
+            <div id="div_choose_trees">
+                <img src="public/img/tree1.png" class="i_trees active" width="25%">
+                <img src="public/img/tree2.png" class="i_trees" width="25%">
+                <img src="public/img/tree3.png" class="i_trees" width="25%">
+            </div>
+            <div id="div_upload_files">
+                <h1 class="cam_titles">Chose a photo !</h1>
+                <p class="button_p">
+                    <label for="file" class="webcam-button">Choose file</label>
+                    <input id="file" class="input-file" type="file">
+                </p>
+            </div>
         </div>
         <div id="modal_result">
             <div id="div_final_result">

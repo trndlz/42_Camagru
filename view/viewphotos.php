@@ -26,7 +26,6 @@ function displayPhotos($array, $nb_pages, $no_page) {
 	foreach ($array as $line) {
 ?>
 	<div id='image_post'>
-		
 		<div class='img_data'><img src=' <?= $line['link'] ?> ' class='pic'>
 				<?php
 					if (isset($_SESSION['user'])) {

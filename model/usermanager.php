@@ -64,6 +64,8 @@ class userManager extends dbConfig {
 		$stmt = $db->prepare("SELECT id_user, active FROM users WHERE login = ? AND password = ?");
 		$stmt->execute(array($login, $password));
 		$id_u = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		if (!isset($id_u['0']))
+			return (0);
 		if ($id_u['0']['active'] == 0) {
 			return (-1);
 		}

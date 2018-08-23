@@ -1,3 +1,7 @@
+/* --------------------------------------------------
+GLOBAL STYLES
+-------------------------------------------------- */
+
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -14,7 +18,33 @@ body {
 	background-color: #f0f5eb;
 }
 
-/* Headers */
+#page {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.cam_titles {
+	padding: 10px 10px 10px 10px;
+	color: #2b9c86;
+}
+
+.text {
+	padding: 25px;
+	flex: 1 0 100%;
+	text-align: center;
+	font-size: 17px;
+}
+
+.textlink {
+	text-decoration: none;
+	color: #4b726a;
+	font-weight: bold;
+}
+
+/* --------------------------------------------------
+HEADERS
+-------------------------------------------------- */
 
 .top-container {
   	background-color: #ffffff;
@@ -41,7 +71,9 @@ body {
 	overflow: hidden;
 }
 
-/* Navbar */
+/* --------------------------------------------------
+NAVBAR
+-------------------------------------------------- */
 
 .navbar {
 	display: flex;
@@ -64,10 +96,10 @@ body {
 	font-size: 27px;
 	font-style: normal;
 	align-self: center;
-	
 }
 
-.camagru_title, .camagru_title:active {
+.camagru_title,
+.camagru_title:active {
 	text-decoration: none;
 	color: white;
 }
@@ -83,16 +115,23 @@ body {
 	align-self: center;
 }
 
-.fa-camera-retro, .fa-user-circle, .fa-sign-out-alt {
+.fa-camera-retro,
+.fa-user-circle,
+.fa-sign-out-alt {
 	font-size: 30px;
 	align-self: center;
 }
 
-.fa-camera-retro:hover, .fa-user-circle:hover, .fa-sign-out-alt:hover, .camagru_title:hover {
+.fa-camera-retro:hover,
+.fa-user-circle:hover,
+.fa-sign-out-alt:hover,
+.camagru_title:hover {
 	color: #2b9c86;
 }
 
-/* Sticky Navbar */
+/* --------------------------------------------------
+STICKY HEADER
+-------------------------------------------------- */
 
 .sticky {
   position: fixed;
@@ -106,422 +145,9 @@ body {
   padding-top: 98px;
 }
 
-
-#page {
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-}
-
-/* Media Queries / Large Screens */
-
-@media screen and (min-width: 450px) {
-
-	#div_choose_trees {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
-		flex: 1 0 60%; 
-	}
-
-	#div_upload_files {
-		display: flex;
-		align-items: center;
-		justify-content: space-around;
-		flex-direction: column;
-		flex-wrap: wrap;
-		align-self: flex-start;
-		flex: 1 0 50%;
-		width: 300px;
-	}
-
-	#modal_result {
-		display: none;
-		position: fixed;
-		z-index: 1000;
-		padding-top: 100px;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		overflow: auto;
-		background-color: rgb(0,0,0);
-		background-color: rgba(0,0,0,0.4);
-	}
-
-	#div_final_result {
-		margin: auto;
-		width: 80%;
-		background: white;
-		padding: 20px;
-		display: flex;
-		align-items: center;
-		justify-content: space-around;
-	}
-
-	#canvas {
-		margin: 10px 0 10px 0;
-	}
-
-	.text {
-		padding: 25px;
-		flex: 1 0 100%;
-		text-align: center;
-		font-size: 17px;
-	}
-
-	.textlink {
-		text-decoration: none;
-		color: #4b726a;
-		font-weight: bold;
-	}
-
-	.textlink:hover {
-		color: black;
-	}
-
-	.content {
-		margin: auto;
-	  	padding-top: 16px;
-	  	padding-bottom: 0px;
-		max-width: 1200px;
-		width: 100%;
-		display: flex;
-		flex-wrap: wrap;
-		flex-direction: row;
-		justify-content: space-around;
-		align-items: center;
-		min-height: 100%;
-	}
-
-	.navbar i.camagru_title::before {
-		content: "cama";
-	}
-
-	.navbar i.camagru_title span::after {
-		content: "green";
-	}
-
-	.heart_icon, .comments_icon {
-	  font-size: 30px;
-	}
-}
-
-/* Media Queries / Smaller Screens */
-
-@media screen and (max-width: 450px) {
-
-	#header_text {
-		font-size: 10vw;
-	}
-
-	.content {
-		display: flex;
-		padding-top: 16px;
-		padding-bottom: 0px;
-		max-width: 100%;
-		flex-direction: column;
-		align-items: center;
-		flex-grow: 1;	
-	}
-
-	.footer {
-		flex-shrink: 0;
-	}
-
-	.heart_icon, .comments_icon {
-	  font-size: 7vw;
-	}
-}
-
-/* Smaller sizes / Photo History */
-
-@media screen and (max-width: 1150px) {
-	#mini {
-		border-radius: 15px;
-		max-height: 200px;
-		/* width: 100vw; */
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		overflow-x: scroll;
-		overflow-y: hidden;
-		text-align: center;
-	}
-	#mini_box {
-		text-align: center;
-		max-width: 90vw;
-	}
-	.mini_img {
-		max-height: 200px;
-	}
-}
-
-/* Larger / Photo History */
-
-@media screen and (min-width: 1150px) {
-	#mini {
-		border-radius: 15px;
-		max-height: 600px;
-		max-width: 350px;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		overflow-y: scroll;
-		text-align: center;
-	}
-	#mini_box {
-		text-align:center;
-	}
-	.mini_img {
-		max-width: 100%;
-	}
-}
-
-/* Images Posts / Independant from screen size */
-
-
-
-#modal_result {
-	display: none;
-	position: fixed;
-	z-index: 1000;
-	padding-top: 100px;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	overflow: auto;
-	background-color: rgb(0,0,0);
-	background-color: rgba(0,0,0,0.4);
-}
-
-#div_final_result {
-	margin: auto;
-	width: 80%;
-	background: white;
-	padding: 20px;
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-}
-
-#image_post {
-	border: 1px solid #d9e4cf;
-	background: white;
-	border-radius: 5px;
-	max-width: 550px;
-	margin: 0 0px 25px 0px;
-}
-
-#image_post_comment {
-	border: 1px solid #d9e4cf;
-	background: white;
-	border-radius: 5px;
-	max-width: 640px;
-	margin: 0 0px 25px 0px;
-}
-
-#image_post .img_data {
-	position: relative;
-}
-
-.pic {
-	object-fit: contain;
-	max-width:100%;
-	max-height:100%;
-}
-
-#img_info {
-	margin-left: 4px;
-	padding: 3px;
-}
-
-/* Comments page */
-
-.img_comment {
-	max-width:640px;
-	width:100%;
-	/* margin: 6px 2px; */
-}
-
-.img_comment, .comment {
-	width:100%;
-	/* margin: 6px 2px; */
-}
-
-.com_date {
-	font-size: 12px;
-	color: #4b726a;
-	letter-spacing: 0.2px;
-}
-
-.textbox {
-	outline: none;
-	overflow: hidden;
-	resize: none;
-	font-family: 'Quicksand', sans-serif;
-	font-size: 14px;
-	padding: 5px;
-	flex-grow: 100;
-	border: 1px solid #9bb3ad;
-	margin-top: 2px;
-}
-
-.comment_box {
-	max-width: 400px;
-	margin: 0px 10px 0px 10px;
-}
-
-.comment_form {
-	display: flex;
-	flex-direction: column;
-	outline: none;
-	/* width: 80vw; */
-}
-
-/* Heart + Comments Layer */
-
-.heart_icon {
-	color: white;
-	left: 3%;
-	top: 87%;
-	opacity: 0.6;
-  	position: absolute;
-}
-
-.liked {
-	color: red;
-}
-
-.comments_icon {
-	color: white;
-	left: 12%;
-	top: 87%;
-	opacity: 0.6;
-	position: absolute;
-	text-decoration: none;
-}
-
-.heart_icon:hover {
-  color:red;
-  opacity: 1;
-}
-
-.comments_icon:hover {
-	color: #2b9c86;
-	opacity: 1;
-  }
-
-/* Footer */
-
-.footer {
-  	color: #ffffff;
-  	text-align: center;
-	padding: 10px;
-	margin-top: 10px;
-	opacity: 0.5;
-  	font-size: 12px;
-  	background-image: url("../img/forest.jpg");
-  	background-position: center;
-	max-width: 100vw;
-}
-
-/* Webcam */
-
-#canvas, #canvas_copy, #live_div {
-	width: 100%;
-	max-width: 480px;
-	height: 100%;
-	z-index: 1;
-}
-
-#live_div {
-	border-radius: 20px 20px;
-	z-index: 5;
-	max-width: 640px;
-	max-height: 480px;
-	width: 100vw;
-	height: calc(100vw * 3 / 4);
-	position: relative;
-	border-radius: 25px;
-}
-
-#videoElement {
-	width: 100%;
-	height: 100%;
-	z-index: 1;
-	border-radius: 25px;
-}
-
-#overlay {
-	opacity: 1;
-	width: 100%;
-	position: absolute;
-	z-index: 2;
-	height: 100%;
-}
-
-#canvas_copy, #canvas_tree {
-	display: none;
-}
-
-.button_p {
-	flex-basis: 100%;
-	text-align: center;
-	margin: 5px;
-}
-
-.webcam-button {
-	padding: 8px;
-  	font-size: 15px;
-	color: white;
-	font-family: 'Quicksand', sans-serif;
-  	text-align: center;
-  	background: #a1c181;
-  	border: 0;
-  	border-bottom: 2px solid #97b678;
-}
-
-.input-file {
-	display: none;
-}
-
-.webcam-button:active {
-  top: 1px;
-  outline: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-.cam_titles {
-	
-	color: #2b9c86;
-}
-
-.i_trees {
-	background: rgba(11, 27, 12, 0.1);
-	opacity: 0.5;
-	border: 3px solid white;
-	border-radius: 20px;
-}
-
-.active, .i_trees:hover {
-	background: rgba(255, 255, 255, 0.1);
-	opacity: 1;
-	border: 3px solid #97b678;
-	border-radius: 20px;
-}
-
-/* Containers of each block  */
-
-#div_upload_files {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-}
+/* --------------------------------------------------
+MESSAGE BAR
+-------------------------------------------------- */
 
 #success {
 	position: absolute;
@@ -555,6 +181,139 @@ body {
 	opacity: 0.9;
 }
 
+/* --------------------------------------------------
+MEDIA QUERIES : LARGE SCREENS
+-------------------------------------------------- */
+
+@media screen and (min-width: 450px) {
+
+	
+
+	#canvas {
+		margin: 10px 0 10px 0;
+	}
+
+	.textlink:hover {
+		color: black;
+	}
+
+	.content {
+		margin: auto;
+	  	padding-top: 16px;
+	  	padding-bottom: 0px;
+		max-width: 1200px;
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+		min-height: 100%;
+	}
+
+	.navbar i.camagru_title::before {
+		content: "cama";
+	}
+
+	.navbar i.camagru_title span::after {
+		content: "green";
+	}
+
+	.heart_icon, .comments_icon {
+	  font-size: 30px;
+	}
+}
+
+/* --------------------------------------------------
+MEDIA QUERIES : SMALL SCREENS
+-------------------------------------------------- */
+
+@media screen and (max-width: 450px) {
+
+	#header_text {
+		font-size: 10vw;
+	}
+
+	.content {
+		display: flex;
+		padding-top: 16px;
+		padding-bottom: 0px;
+		max-width: 100%;
+		flex-direction: column;
+		align-items: center;
+		flex-grow: 1;	
+	}
+
+	.footer {
+		flex-shrink: 0;
+	}
+
+	.heart_icon, .comments_icon {
+	  font-size: 7vw;
+	}
+}
+
+/* --------------------------------------------------
+PHOTO HISTORY
+-------------------------------------------------- */
+
+/* Smaller sizes */
+
+@media screen and (max-width: 1150px) {
+	#mini {
+		border-radius: 15px;
+		max-height: 200px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		overflow-x: scroll;
+		overflow-y: hidden;
+		text-align: center;
+	}
+
+	#mini_box {
+		text-align: center;
+		max-width: 90vw;
+	}
+	.mini_img {
+		max-height: 200px;
+	}
+}
+
+/* Larger */
+
+@media screen and (min-width: 1150px) {
+	#mini {
+		border-radius: 15px;
+		max-height: 600px;
+		max-width: 350px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		overflow-y: scroll;
+		text-align: center;
+	}
+	#mini_box {
+		text-align:center;
+	}
+	.mini_img {
+		max-width: 100%;
+	}
+}
+
+/* --------------------------------------------------
+PAGE // ADDPHOTOS.PHP
+-------------------------------------------------- */
+
+#div_choose_trees {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+	flex: 1 0 50%;
+	padding: 15px 0 15px 0;
+}
+
 #div_use_webcam {
 	display: flex;
 	align-items: center;
@@ -563,12 +322,303 @@ body {
 	max-width: 800px;
 }
 
-#div_final_result {
-	flex-direction: column;
-	justify-content: flex-end;
+/* Modal  */
+
+#modal_result {
+	display: none;
+	position: fixed;
+	z-index: 1000;
+	padding-top: 100px;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.4);
 }
 
-/* Login page */
+#div_final_result {
+	margin: auto;
+	width: 80%;
+	background: white;
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+/* Tree selector */
+
+.i_trees {
+	background: rgba(11, 27, 12, 0.1);
+	opacity: 0.5;
+	border: 3px solid white;
+	border-radius: 20px;
+}
+
+.active, .i_trees:hover {
+	background: rgba(255, 255, 255, 0.1);
+	opacity: 1;
+	border: 3px solid #97b678;
+	border-radius: 20px;
+}
+
+
+/* Webcam */
+
+.webcam-button:active {
+  top: 1px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+#canvas, #canvas_copy, #live_div {
+	width: 100%;
+	max-width: 480px;
+	height: 100%;
+	z-index: 1;
+}
+
+#live_div {
+	border-radius: 20px 20px;
+	z-index: 5;
+	max-width: 640px;
+	max-height: 480px;
+	width: 100vw;
+	height: calc(100vw * 3 / 4);
+	position: relative;
+	border-radius: 25px;
+}
+
+#videoElement {
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	border-radius: 25px;
+	background-color: white;
+}
+
+#overlay {
+	opacity: 1;
+	width: 100%;
+	position: absolute;
+	z-index: 2;
+	height: 100%;
+}
+
+#canvas_copy, #canvas_tree {
+	display: none;
+}
+
+.button_p {
+	flex-basis: 100%;
+	text-align: center;
+	margin: 5px;
+}
+
+.webcam-button {
+	padding: 8px;
+  	font-size: 15px;
+	color: white;
+	font-family: 'Quicksand', sans-serif;
+  	text-align: center;
+  	background: #a1c181;
+  	border: 0;
+  	border-bottom: 2px solid #97b678;
+}
+
+/* --------------------------------------------------
+PAGE // UPLOADPHOTO.PHP
+-------------------------------------------------- */
+
+.input-file {
+	display: none;
+}
+
+#div_upload_files {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-self: flex-start;
+	flex: 1 0 50%;
+	width: 300px;
+}
+
+#upload_page {
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	justify-content: center;
+}
+
+/* --------------------------------------------------
+PAGE // VIEWPHOTOS.PHP
+-------------------------------------------------- */
+
+/* Image snippets */
+
+#image_post {
+	border: 1px solid #d9e4cf;
+	background: white;
+	border-radius: 5px;
+	max-width: 550px;
+	margin: 0 0px 25px 0px;
+}
+
+#image_post .img_data {
+	position: relative;
+}
+
+.pic {
+	object-fit: contain;
+	max-width:100%;
+	max-height:100%;
+}
+
+#img_info {
+	margin-left: 4px;
+	padding: 3px;
+}
+
+/* Pagination */
+
+.pagination {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.pagination_item {
+	width: 40px;
+    line-height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 18px;
+	border: 2px solid #648345;
+	font-weight: bold;
+	text-decoration: none;
+	margin: 2px 5px 2px 5px;
+	color: #648345;
+	background-color: #a1c181;
+}
+
+.pagination_item:hover, .current_page {
+	color:white;
+	background-color: #648345;
+}
+
+/* Heart & Comments */
+
+.heart_icon {
+	color: white;
+	left: 3%;
+	top: 87%;
+	opacity: 0.6;
+  	position: absolute;
+}
+
+.liked {
+	color: red;
+}
+
+.comments_icon {
+	color: white;
+	left: 12%;
+	top: 87%;
+	opacity: 0.6;
+	position: absolute;
+	text-decoration: none;
+}
+
+.heart_icon:hover {
+  color:red;
+  opacity: 1;
+}
+
+.comments_icon:hover {
+	color: #2b9c86;
+	opacity: 1;
+}
+
+/* --------------------------------------------------
+PAGE // COMMENTPHOTO.PHP
+-------------------------------------------------- */
+
+.img_comment {
+	max-width:640px;
+	width:100%;
+}
+
+#image_post_comment {
+	border: 1px solid #d9e4cf;
+	background: white;
+	border-radius: 5px;
+	max-width: 640px;
+	margin: 0 0px 25px 0px;
+}
+
+.img_comment, .comment {
+	width:100%;
+}
+
+.com_date {
+	font-size: 12px;
+	color: #4b726a;
+	letter-spacing: 0.2px;
+}
+
+.textbox {
+	outline: none;
+	overflow: hidden;
+	resize: none;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 14px;
+	padding: 5px;
+	flex-grow: 100;
+	border: 1px solid #9bb3ad;
+	margin-top: 2px;
+}
+
+.comment_box {
+	max-width: 400px;
+	margin: 0px 10px 0px 10px;
+}
+
+.comment_form {
+	display: flex;
+	flex-direction: column;
+	outline: none;
+}
+
+/* --------------------------------------------------
+FOOTER
+-------------------------------------------------- */
+
+.footer {
+  	color: #ffffff;
+  	text-align: center;
+	padding: 10px;
+	margin-top: 10px;
+	opacity: 0.5;
+  	font-size: 12px;
+  	background-image: url("../img/forest.jpg");
+  	background-position: center;
+	max-width: 100vw;
+}
+
+/* Containers of each block  */
+
+
+
+/* --------------------------------------------------
+LOGIN PAGE
+-------------------------------------------------- */
 
 .login_form {
 	display: flex;
@@ -608,37 +658,13 @@ body {
 	justify-content: center;
 }
 
+/* --------------------------------------------------
+REGISTER PAGE
+-------------------------------------------------- */
+
 #register_page {
-	display: none;
+	display: flex;
 	flex-direction: column;
 	align-content: center;
 	justify-content: center;
-}
-
-/* Pagination */
-
-.pagination {
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-}
-
-.pagination_item {
-	width: 40px;
-    line-height: 35px;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 18px;
-	border: 2px solid #648345;
-	font-weight: bold;
-	text-decoration: none;
-	margin: 2px 5px 2px 5px;
-	color: #648345;
-	background-color: #a1c181;
-}
-
-.pagination_item:hover, .current_page {
-	color:white;
-	background-color: #648345;
 }
