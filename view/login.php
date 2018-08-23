@@ -31,6 +31,6 @@
         <input type="password" class="login_input" name="password" autocomplete="current-password" placeholder="Enter your password" required>
         <input type="submit" class="login_submit" value="Submit">
     </form>
-    <h1 class="cam_titles">Not a member yet ? Register <a href="index.php?action=register" class="textlink">here</a></h1>
-    <h1 class="cam_titles">Forgot your password ? Click <a href="index.php?action=forgot" class="textlink">here</a> to reinitialize</h1>
+    <p class="text">Not a member yet ? Register <a href="index.php?action=register" class="textlink">here</a></p>
+    <p class="text">Forgot your password ? Click <a href="index.php?action=forgot" class="textlink">here</a> to reinitialize</p>
 </div>
