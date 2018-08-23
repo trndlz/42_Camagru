@@ -8,7 +8,7 @@ class commentsManager extends dbConfig {
 
 	public function getAllComments($id_photo) {
 		$db = parent::dbConnect();
-		$rows = $db->prepare('SELECT users.login, comments.date, comments.comment FROM comments INNER JOIN users ON comments.id_user = users.id_user WHERE comments.id_photo = ? ORDER BY comments.date ASC LIMIT 20');
+		$rows = $db->prepare('SELECT users.login, comments.id_user, comments.date, comments.comment FROM comments INNER JOIN users ON comments.id_user = users.id_user WHERE comments.id_photo = ? ORDER BY comments.date ASC LIMIT 20');
 		$rows->execute(array($id_photo));
 		$results = $rows->fetchAll(PDO::FETCH_ASSOC);
 		return $results;

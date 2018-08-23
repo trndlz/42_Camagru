@@ -25,7 +25,7 @@ function displayComments($single_photo, $data) { ?>
 		<div class="comment_box">
 			<?php
 			foreach ($data as $ind_com) {
-				echo "<p class='comment'><b>".$ind_com['login']." </b>";
+				echo "<p class='comment'><b>".htmlentities($ind_com['login'])." </b>";
 				echo "<span class='com_date'>".strtoupper(get_timeago(strtotime($ind_com['date'])))." </span>";
 				echo $ind_com['comment'] ."</p>";
 			}

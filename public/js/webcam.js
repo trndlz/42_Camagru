@@ -48,16 +48,15 @@ function treeSelector() {
     return selected_tree[0];
 }
 
-// Hide any div
-function hideDiv(x) {
-    var x = document.getElementById(x);
-    x.style.display = 'none';
-}
+// Delete Photo
 
-// Show div
-function showDiv(x) {
-    var x = document.getElementById(x);
-    x.style.display = 'flex';
+function deletePic(clickedId) {
+    
+    if (confirm('Are you sure you want to delete this photo from your Camagreen ?')) {
+        var id_to_delete = document.getElementById("id_photo_delete");
+        id_to_delete.value = clickedId;
+        document.getElementById("photo_delete").submit();
+    }
 }
 
 // Gray snapshot

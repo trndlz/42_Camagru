@@ -2,6 +2,8 @@
 
         require('model/photosmanager.php');
 
+        $db = new photosManager();
+
         if (isset($_POST['tree']) && isset($_POST['img'])) {
             $img = $_POST['img'];
             $tree_url = $_POST['tree'];
@@ -29,13 +31,16 @@
                 imagefilter($imgcpy,IMG_FILTER_COLORIZE, 90, 55, 30);
             }
             imagepng($imgcpy, $file);
-            $db = new photosManager();
             $db->addPhoto($_SESSION['user'], $file);
-            header("Location: ?message=Your image was successfully saved !&message_type=success");
-        }        
+            header("Location: ?action=add&message=Your image was successfully saved !&message_type=success");
+        }
+        
+        if (isset($_POST['id_photo_delete']) && $_POST['id_photo_delete'] != '') {
+            $db->deletePhoto($_POST['id_photo_delete']);
+            header("Location: ?action=add&message=Your photo has been deleted successfully !&message_type=success");
+        }
         ?>
-        
-        
+    
         <div id="div_use_webcam">
             <h1 class="cam_titles">Create your image !</h1>
             <p class="button_p">
@@ -54,7 +59,17 @@
                 <img src="public/img/tree2.png" class="i_trees" width="25%">
                 <img src="public/img/tree3.png" class="i_trees" width="25%">
             </div>
-            
+        </div>
+        <div id="mini_box">
+            <h1 class="cam_titles">History</h1>
+            <div id="mini">
+            <?php
+                $mini = $db->getPhotosUser($_SESSION['user']);
+                foreach ($mini as $i) {
+                    echo "<img src='".$i['link']."' class='mini_img' id='".$i['id_photo']."' onclick='deletePic(this.id);'>";
+                }
+                ?>
+            </div>
         </div>
         <div id="modal_result">
             <div id="div_final_result">
@@ -68,6 +83,10 @@
                 </form>
             </div>
         </div>
+        <p class="text">No webcam? You can upload your own photo <a href="?action=upload" class="textlink">here</a></p>
         <canvas id="canvas_copy" width="300" height="300"></canvas>
         <canvas id="canvas_tree" width="300" height="300"></canvas>
+        <form method="POST" action="" id="photo_delete">
+            <input id="id_photo_delete" name="id_photo_delete" type="hidden" value="">
+        </form>
         <script src="public/js/webcam.js"></script>

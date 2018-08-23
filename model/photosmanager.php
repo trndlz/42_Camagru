@@ -36,11 +36,25 @@ class photosManager extends dbConfig {
 		return $results;
 	}
 
+	public function getPhotosUser($id_user) {
+		$db = parent::dbConnect();
+		$stmt = $db->prepare("SELECT link, id_photo FROM photos WHERE id_user = ? ORDER BY date DESC");
+		$stmt->execute(array($id_user));
+		$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		return $results;
+	}
+
 	public function countNbPhotos() {
 		$db = parent::dbConnect();
 		$stmt = $db->query("SELECT count(*) FROM photos");
 		$count = $stmt->fetchColumn();
 		return $count;
+	}
+
+	public function deletePhoto($id_photo) {
+		$db = parent::dbConnect();
+		$statement = $db->prepare("DELETE FROM photos WHERE id_photo = ?");
+		$statement->execute(array($id_photo));
 	}
 
 	public function addPhoto($id_user, $file) {

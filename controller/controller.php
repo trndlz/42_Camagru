@@ -16,12 +16,7 @@ class Controller {
         }
         // By default, display all photos
         if (!isset($_GET['action']) && empty($_GET['action'])) {
-            // require('model/photosmanager.php');
             require('view/viewphotos.php');
-            // $db = new photosManager();
-            // $photos = $db->getAllPhotos();
-            // $total = $db->countNbPhotos();
-            // displayPhotos($photos, $total);
         }
         // All other available pages for un-registered users
         else if ($_GET['action'] == 'login') {
@@ -40,6 +35,9 @@ class Controller {
                 }
                 if ($_GET['action'] == 'userpage') {
                     require('view/userpage.php');
+                }
+                if ($_GET['action'] == 'upload') {
+                    require('view/uploadphoto.php');
                 }
                 if ($_GET['action'] == 'logout') {
                     require('view/logout.php');
