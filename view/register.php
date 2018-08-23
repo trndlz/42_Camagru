@@ -36,8 +36,8 @@
         <input type="text" class="login_input" name="fullname" autocomplete="fullname"  placeholder="Enter your full name" required>
         <input type="text" class="login_input" name="email" autocomplete="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Enter your email" required>
         <input type="text" class="login_input" name="login" autocomplete="login" placeholder="Enter your login" required>
-        <input type="password" class="login_input" name="password1" id="password1" autocomplete="current-password" placeholder="Enter your password (more than 8 characters)" required>
-        <input type="password" class="login_input" name="password2" id="password2" autocomplete="current-password" placeholder="Enter your password again" onkeyup="passCheck(); return false;" required>
+        <input type="password" class="login_input" name="password1" id="password1" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" autocomplete="current-password" placeholder="Enter your password (more than 8 characters)" required>
+        <input type="password" class="login_input" name="password2" id="password2" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" autocomplete="current-password" placeholder="Enter your password again" onkeyup="passCheck(); return false;" required>
         <span id="message_match"></span>
         <span id="length_match"></span>
         <input type="submit" class="login_submit" id="reg_submit" disabled="true" value="Welcome !">

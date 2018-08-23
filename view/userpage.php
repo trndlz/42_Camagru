@@ -71,9 +71,9 @@
 		<p class="user_field">Type your old password:</p>
 		<input type="password" class="login_input" name="old_password" id="old_password" autocomplete="current-password" placeholder="Enter your old password" required>
 		<p class="user_field">Type your new password:</p>
-		<input type="password" class="login_input" name="password1" id="password1" autocomplete="current-password" placeholder="Enter a new password (more than 8 characters)">
+		<input type="password" class="login_input" name="password1"  pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" id="password1" autocomplete="current-password" placeholder="Enter a new password (more than 8 characters)">
 		<p class="user_field">Type your new password again:</p>
-		<input type="password" class="login_input" name="password2" id="password2" autocomplete="current-password" placeholder="Enter your new password again" onkeyup="passCheck(); return false;">
+		<input type="password" class="login_input" name="password2"  pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" id="password2" autocomplete="current-password" placeholder="Enter your new password again" onkeyup="passCheck(); return false;">
 		<p class="user_field">
 			<input class="checkbox" type="checkbox" <?php if ($data[0]['notification'] == 1) { echo 'checked="checked"'; } ?> name="notif">Enable notifications on comments
 		</p>
