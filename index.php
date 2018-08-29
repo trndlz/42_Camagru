@@ -33,7 +33,7 @@
 			$controller->loadModel(); ?>
 		</div>	
 		<div class="footer">
-			Copyright 2018. VBNTMLP.
+			&copy; tmervin 2018
 		</div>
 	</div>
 	<script src="public/js/sticky_header.js"></script>

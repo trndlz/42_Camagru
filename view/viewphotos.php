@@ -60,7 +60,7 @@ function displayPhotos($array, $nb_pages, $no_page) {
 		}
 	} else {
 		$i = ($no_page - 2 < 1 ) ? 1 : $_GET['page'] - 2;
-		$max = ($no_page + 2 > $nb_pages) ? $nb_pages - 1 : $no_page + 2;
+		$max = ($no_page + 2 >= $nb_pages) ? $nb_pages - 1 : $no_page + 2;
 		while ($i <= $max) {
 			if ($i == $no_page) 
 				echo "<a href='?page=".$i."' class='pagination_item current_page'>".$i."</a>";
@@ -68,7 +68,9 @@ function displayPhotos($array, $nb_pages, $no_page) {
 				echo "<a href='?page=".$i."' class='pagination_item'>".$i."</a>";
 			$i++;
 		}
-		echo " . . . ";
+		if ($i != $nb_pages) {
+			echo " <span class='pagination_points'>...</span> ";
+		}
 		if ($i == $no_page) 
 			echo "<a href='?page=".$nb_pages."' class='pagination_item current_page'>".$nb_pages."</a>";
 		else

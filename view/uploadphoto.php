@@ -12,15 +12,19 @@
             if (!file_put_contents($file, $data)) {
                 $_SESSION['message'] = 'Your image could not be uploaded :(';
                 $_SESSION['message_type'] = 'failure';
-                header("Location: index.php");
+                header("Location: ?action=add");
             }
-                
             $imgcpy = imagecreatefrompng($file);
             $treecpy = imagecreatefrompng($tree_url);
             imagealphablending($treecpy, true);
             imagesavealpha($treecpy, true);
             imagecopy($imgcpy, $treecpy, 0, 0, 0, 0, 640, 480);
             imagepng($imgcpy, $file);
+            if (!$imgcpy) {
+                $_SESSION['message'] = 'Your image could not be uploaded :(';
+                $_SESSION['message_type'] = 'failure';
+                header("Location: ?action=add");
+            }
             if ($_POST['filter'] == 'grayscale') {
                 imagefilter($imgcpy, IMG_FILTER_GRAYSCALE);
             }
@@ -33,16 +37,21 @@
                 imagefilter($imgcpy,IMG_FILTER_COLORIZE, 90, 55, 30);
             }
             imagepng($imgcpy, $file);
+            if (!$imgcpy) {
+                $_SESSION['message'] = 'Your image could not be uploaded :(';
+                $_SESSION['message_type'] = 'failure';
+                header("Location: ?action=add");
+            }
             $db = new photosManager();
             $db->addPhoto($_SESSION['user'], $file);
             $_SESSION['message'] = 'Your image was successfully saved !';
             $_SESSION['message_type'] = 'success';
-            header("Location: index.php");
+            header("Location: ?action=add");
         }        
         ?>
-
+        <h1 class="cam_titles">Chose a tree !</h1>
         <div id="upload_page">
-            <h1 class="cam_titles">Chose a tree !</h1>
+            
             <div id="div_choose_trees">
                 <img src="public/img/tree1.png" class="i_trees active" width="25%">
                 <img src="public/img/tree2.png" class="i_trees" width="25%">

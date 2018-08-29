@@ -508,6 +508,19 @@ PAGE // VIEWPHOTOS.PHP
 	background-color: #a1c181;
 }
 
+.pagination_points {
+	width: 40px;
+    line-height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 18px;
+	border: 2px solid #648345;
+	font-weight: bold;
+	text-decoration: none;
+	margin: 2px 5px 2px 5px;
+	color: #648345;
+}
+
 .pagination_item:hover, .current_page {
 	color:white;
 	background-color: #648345;
