@@ -277,6 +277,7 @@ PHOTO HISTORY
 	}
 	.mini_img {
 		max-height: 200px;
+		height: 200px;
 	}
 }
 
