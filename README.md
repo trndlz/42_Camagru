@@ -12,7 +12,9 @@ App’s users should be able to select an image in a list of superposable images
 
 
 Desktop view:
+
 ![alt text](https://github.com/trndlz/camagru/blob/master/Camag-1.png)
 
 Mobile view:
+
 ![alt text](https://github.com/trndlz/camagru/blob/master/Camag-2.png)
