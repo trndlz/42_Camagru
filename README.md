@@ -9,3 +9,10 @@ App’s users should be able to select an image in a list of superposable images
 • Server-side : Only PHP with standard library is used.
 
 • Client-side: HTML, CSS and JavaScript.
+
+
+Desktop view:
+![alt text](https://github.com/trndlz/camagru/blob/master/Camag-1.png)
+
+Mobile view:
+![alt text](https://github.com/trndlz/camagru/blob/master/Camag-2.png)
